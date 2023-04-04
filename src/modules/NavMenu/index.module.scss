@@ -6,12 +6,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 35px;
-    padding-right: 70px;
-
-    @media (max-width: 1024px) {
-      padding-right: 35px;
-    }
+    max-width: 1230px;
+    margin: 0 auto;
+    padding: 0 15px;
   }
 
   .Nav{

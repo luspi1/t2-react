@@ -3,6 +3,7 @@ import styles from './index.module.scss'
 import avatarImg from '../../assets/img/avatar-sm.png'
 import ruLang from '../../assets/img/ru-lang.png'
 import uzbLang from '../../assets/img/uzb-lang.png'
+import { NavLink } from 'react-router-dom'
 
 export const NavMenu: FC = () => {
 	return (
@@ -11,19 +12,19 @@ export const NavMenu: FC = () => {
 				<nav className={styles.Nav}>
 					<ul className={styles.NavList}>
 						<li>
-							<a href='index.html'>Главная страница</a>
+							<NavLink to='/'>Главная страница</NavLink>
 						</li>
 						<li>
-							<a href='objects-all.html'>Объекты недвижимости</a>
+							<NavLink to='/'>Объекты недвижимости</NavLink>
 						</li>
 						<li>
-							<a href='auctions-all.html'>Аукционы</a>
-						</li>
-						<li className='@active-organizations-all'>
-							<a href='organizations-all.html'>Организации</a>
+							<NavLink to='/'>Аукционы</NavLink>
 						</li>
 						<li>
-							<a href='#'>Информация и документы</a>
+							<NavLink to='/organizations'>Организации</NavLink>
+						</li>
+						<li>
+							<NavLink to='/organizations'>Информация и документы</NavLink>
 						</li>
 					</ul>
 				</nav>
@@ -52,36 +53,16 @@ export const NavMenu: FC = () => {
 								</li>
 							</ul>
 						</div>
-						<a
-							className={styles.PersonalAvatarLink}
-							href='#'
-						>
-							<img
-								src={avatarImg}
-								alt='аватар профиля'
-							/>
+						<a className={styles.PersonalAvatarLink} href='#'>
+							<img src={avatarImg} alt='аватар профиля' />
 						</a>
 					</div>
 					<div className='main-menu__lang-switch'>
-						<button
-							className={styles.LangBtn}
-							type='button'
-							title='Oʻzbek'
-						>
-							<img
-								src={uzbLang}
-								alt='Переключить на узбекский'
-							/>
+						<button className={styles.LangBtn} type='button' title='Oʻzbek'>
+							<img src={uzbLang} alt='Переключить на узбекский' />
 						</button>
-						<button
-							className='main-menu__lang-btn'
-							type='button'
-							title='Русский'
-						>
-							<img
-								src={ruLang}
-								alt='Переключить на русский'
-							/>
+						<button className='main-menu__lang-btn' type='button' title='Русский'>
+							<img src={ruLang} alt='Переключить на русский' />
 						</button>
 					</div>
 				</div>
