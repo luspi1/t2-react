@@ -3,12 +3,15 @@ import styled from 'styled-components'
 
 type ContainerProps = PropsWithChildren<{
 	padding?: string
+	width?: string
+	margin?: string
+	className?: string
 }>
 
 const StyledContainer = styled.div<ContainerProps>`
-	margin: 0 auto;
-	max-width: 1230px;
+	max-width: ${({ width }) => width ?? '1270px'};
 	padding: ${({ padding }) => padding ?? '0 15px'};
+	margin: ${({ margin }) => margin ?? '0 auto'};
 `
 export const Container: FC<ContainerProps> = (props) => {
 	return <StyledContainer {...props} />

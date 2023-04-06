@@ -50,9 +50,11 @@ img {
   max-width: 100%;
   object-fit: cover;
 }
+
 svg {
   pointer-events: none;
 }
+
 a {
   text-decoration: none;
 }
@@ -78,6 +80,20 @@ select::-ms-expand {
   display: none;
 }
 
+.custom-select {
+  &__control {
+    cursor: pointer !important;
+    min-height: 35px !important;
+    height: 35px !important;
+  }
+
+  &__single-value,
+  &__placeholder {
+    padding-bottom: 4px;
+  }
+}
+
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -86,7 +102,7 @@ input::-webkit-inner-spin-button {
 
 /* Firefox */
 input[type=number] {
-  -moz-appearance:textfield;
+  -moz-appearance: textfield;
 }
 
 textarea {
@@ -99,4 +115,20 @@ textarea {
   padding: 0 15px;
 }
 
+.nav-link {
+  display: block;
+  padding: 6px 10px;
+  color: #ffffff;
+  transition: all .3s;
+  border-radius: 20px;
+
+  &._active {
+    background-color: #337390;
+    pointer-events: none;
+  }
+
+  &:hover {
+    background-color: #2A8D9C;
+  }
+}
 

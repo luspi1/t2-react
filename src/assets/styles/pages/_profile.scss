@@ -1,0 +1,314 @@
+.profile-page {
+
+  .info {
+    margin-bottom: 30px;
+
+    &__inner {
+      background: $white;
+      border-radius: 26px;
+      padding: 22px 20px 40px 22px;
+      position: relative;
+    }
+
+    &__data {
+      display: flex;
+      align-items: flex-start;
+       padding-bottom: 40px;
+      position: relative;
+
+      .line {
+        bottom: 0;
+        right: 0;
+        max-width: 1018px;
+      }
+    }
+
+    &__data-avatar {
+      margin-right: 20px;
+      max-width: 120px;
+      max-height: 120px;
+      min-width: 80px;
+      min-height: 80px;
+      overflow: hidden;
+    }
+
+    &__data-fullname {
+      margin-right: 145px;
+      max-width: 670px;
+    }
+
+    &__name {
+      @include montserrat-semibold;
+      font-size: 36px;
+      line-height: 44px;
+      color: #000000;
+      margin-bottom: 15px;
+    }
+
+    &__email {
+      color: $link;
+    }
+
+    &__data-list {
+      li {
+        padding-left: 35px;
+        position: relative;
+
+        a {
+          color: $link;
+        }
+
+        svg {
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+
+        &:not(:last-child) {
+          margin-bottom: 17px;
+        }
+      }
+    }
+
+    &__passport {
+      display: flex;
+      padding-top: 15px;
+      padding-left: 20px;
+      flex-wrap: wrap;
+
+      .subtitle {
+        margin-bottom: 50px;
+      }
+    }
+
+    &__passport-data {
+      padding-top: 23px;
+      margin-right: 48px;
+      max-width: 655px;
+    }
+
+    &__passport-img {
+      min-width: 80px;
+      margin-right: 42px;
+    }
+
+    .passport-list {
+
+      li {
+        display: flex;
+        align-items: flex-start;
+
+        &:not(:last-child) {
+          margin-bottom: 20px;
+        }
+      }
+
+      &__title {
+        min-width: 250px;
+        margin-right: 23px;
+      }
+    }
+
+    &__passport-photo {
+      padding-top: 28px;
+      min-width: 200px;
+
+      h3 {
+        @include montserrat-bold;
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 45px;
+      }
+
+      #passport-dropzone {
+        display: flex;
+        max-width: 220px;
+        flex-wrap: wrap;
+
+
+        .dz-message {
+          order: 2;
+          height: 93px;
+        }
+
+        .dz-preview {
+          width: 93px;
+          height: 93px;
+          margin: 0 15px 15px 0;
+
+          img {
+            border-radius: 5px;
+          }
+        }
+
+        .dz-remove {
+          color: transparent;
+          position: absolute;
+          top: -10px;
+          right: -10px;
+          border-radius: 50%;
+          background: url("../img/del-photo.png") no-repeat center;
+          width: 25px;
+          height: 25px;
+          z-index: 100;
+        }
+
+        .info__add-photo {
+          .add-icon-bg {
+            transition: all .3s;
+          }
+
+          &:hover .add-icon-bg {
+            fill: $link;
+          }
+
+
+        }
+      }
+    }
+  }
+
+  .additional {
+    margin-bottom: 30px;
+
+    .subtitle-sm {
+      min-width: 55px;
+    }
+
+    &__inner {
+      background: $white;
+      border-radius: 26px;
+      padding: 20px 10px 77px 42px;
+      position: relative;
+
+      >.additional__row {
+        flex-wrap: wrap;
+        margin-left: 123px;
+      }
+    }
+
+    &__top {
+      display: flex;
+      align-items: center;
+    }
+
+    &__row {
+      display: flex;
+    }
+
+    &__text {
+      display: flex;
+      max-width: 660px;
+      margin-right: 45px;
+      margin-top: 24px;
+
+      > .subtitle-sm {
+        margin-right: 28px;
+      }
+    }
+
+    &__socials {
+      margin-top: 24px;
+
+      .additional__row {
+        .subtitle-sm {
+          min-width: 132px;
+        }
+
+        &:first-child {
+          margin-bottom: 12px;
+        }
+      }
+
+      a {
+        display: inline-block;
+        margin-left: 20px;
+
+        .svg-bg {
+          transition: all .3s;
+        }
+
+        &:hover .svg-bg{
+          fill:  #93B5C5;
+
+        }
+
+
+      }
+    }
+  }
+
+  .bank {
+    margin-bottom: 30px;
+
+    &__inner {
+      background: $white;
+      border-radius: 26px;
+      padding: 20px 10px 77px 42px;
+      position: relative;
+    }
+
+    &__top {
+      display: flex;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    &__list {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-left: 123px;
+    }
+
+    &__card {
+      max-width: 287px;
+      margin-top: 5px;
+      margin-right: 22px;
+      padding: 21px 30px 18px 16px;
+      border-radius: 10px;
+      border: 1px solid #D2E7EF;
+      position: relative;
+
+      &.active {
+        border: 1px solid #66ACCC;
+      }
+
+      .subtitle-sm {
+        margin-bottom: 13px;
+        font-weight: 700;
+      }
+
+      span.subtitle-sm {
+        font-weight: 500;
+        color: $black;
+      }
+
+      .delete-btn {
+        position: absolute;
+        top: -17px;
+        right: -17px;
+      }
+
+    }
+
+    &__card-add {
+      margin-top: 10px;
+      .add-icon-bg {
+        transition: all .3s;
+      }
+
+      &:hover .add-icon-bg {
+        fill: $link;
+      }
+    }
+
+    &__date {
+      margin-top: 10px;
+      color: $blue;
+    }
+  }
+
+}
