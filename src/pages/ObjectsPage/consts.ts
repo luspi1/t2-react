@@ -1,10 +1,14 @@
-export const ObjectsStatusOptions = [
-	{ value: 'work_1', label: 'Черновик' },
-	{ value: 'work_2', label: 'Ожидает' },
-	{ value: 'work_3', label: 'В работе' },
-	{ value: 'work_4', label: 'Продан' },
+import { type SelOption } from '../../types/select'
+
+export const ObjectsStatusOptions: SelOption[] = [
+	{ value: 'all', label: 'Все статусы' },
+	{ value: 'draft', label: 'Черновик' },
+	{ value: 'await', label: 'Ожидает' },
+	{ value: 'inWork', label: 'В работе' },
+	{ value: 'sold', label: 'Продан' },
 ]
-export const ObjectsOnAucOptions = [
-	{ value: 'auction_1', label: 'На аукционе' },
-	{ value: 'auction_2', label: 'Без аукциона' },
+export const ObjectsOnAucOptions: SelOption[] = [
+	{ value: 'all', label: 'Все объекты' },
+	{ value: 'onAuc', label: 'На аукционе' },
+	{ value: 'withoutAuc', label: 'Без аукциона' },
 ]

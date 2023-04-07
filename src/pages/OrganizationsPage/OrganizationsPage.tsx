@@ -3,10 +3,14 @@ import { MainTitle } from '../../UI/MainTitle'
 import { Container } from '../../UI/Container'
 import Select from 'react-select'
 import { OrgReputationOptions, OrgTypeOptions } from './consts'
+import { Helmet } from 'react-helmet-async'
 
 export const OrganizationsPage: FC = () => {
 	return (
 		<Container margin='0 auto 35px auto'>
+			<Helmet>
+				<title>Организации</title>
+			</Helmet>
 			<MainTitle padding='38px 0 32px 20px'>Организации</MainTitle>
 			<div className='organizations__inner'>
 				<div className='organizations__links'>

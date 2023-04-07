@@ -3,10 +3,14 @@ import { MainTitle } from '../../UI/MainTitle'
 import { Container } from '../../UI/Container'
 import Select from 'react-select'
 import { AuctionStatusOptions, CurrencyOptions } from './consts'
+import { Helmet } from 'react-helmet-async'
 
 export const AuctionsPage: FC = () => {
 	return (
 		<Container margin='0 auto 35px auto'>
+			<Helmet>
+				<title>Аукционы</title>
+			</Helmet>
 			<MainTitle padding='38px 0 32px 20px'>Аукционы</MainTitle>
 			<div className='auctions__inner'>
 				<div className='auctions__top'>

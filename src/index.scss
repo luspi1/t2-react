@@ -15,7 +15,6 @@ body {
   position: relative;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
-
   background-color: #F2F2F2;
 }
 
@@ -124,7 +123,6 @@ textarea {
 
   &._active {
     background-color: #337390;
-    pointer-events: none;
   }
 
   &:hover {
