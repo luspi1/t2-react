@@ -1,17 +1,17 @@
 import { type FC, useEffect, useRef } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { AppRoute } from '../../helpers/consts'
+import { AppRoute } from 'src/helpers/consts'
 
-import { Layout } from '../Layout/Layout'
-import { HomePage } from '../../pages/HomePage/HomePage'
-import { OrganizationsPage } from '../../pages/OrganizationsPage/OrganizationsPage'
-import { AuctionsPage } from '../../pages/AuctionsPage/AuctionsPage'
-import { ObjectsPage } from '../../pages/ObjectsPage/ObjectsPage'
-import { InfoDocumentsPage } from '../../pages/InfoDocumentsPage/InfoDocumentsPage'
-import { ObjectItemPage } from '../../pages/ObjectItemPage/ObjectItemPage'
-import { useAppDispatch } from '../../hooks/store'
-import { setAllObjects } from '../../pages/ObjectsPage/store/ObjectsSlice/objects.slice'
-import { CreateObject } from '../../pages/CreateObject/CreateObject'
+import { Layout } from 'src/modules/Layout/Layout'
+import { HomePage } from 'src/pages/HomePage/HomePage'
+import { OrganizationsPage } from 'src/pages/OrganizationsPage/OrganizationsPage'
+import { AuctionsPage } from 'src/pages/AuctionsPage/AuctionsPage'
+import { ObjectsPage } from 'src/pages/ObjectsPage/ObjectsPage'
+import { InfoDocumentsPage } from 'src/pages/InfoDocumentsPage/InfoDocumentsPage'
+import { ObjectItemPage } from 'src/pages/ObjectItemPage/ObjectItemPage'
+import { useAppDispatch } from 'src/hooks/store'
+import { setAllObjects } from 'src/pages/ObjectsPage/store/ObjectsSlice/objects.slice'
+import { CreateObject } from 'src/pages/CreateObject/CreateObject'
 
 export const App: FC = () => {
 	const dispatch = useAppDispatch()

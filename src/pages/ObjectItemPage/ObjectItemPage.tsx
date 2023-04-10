@@ -1,12 +1,12 @@
 import { type FC } from 'react'
-import { MainTitle } from '../../UI/MainTitle'
-import { Container } from '../../UI/Container'
+import { MainTitle } from 'src/UI/MainTitle'
+import { Container } from 'src/UI/Container'
 import { Helmet } from 'react-helmet-async'
-import { useAppSelector } from '../../hooks/store'
+import { useAppSelector } from 'src/hooks/store'
 import { getObjectById } from '../ObjectsPage/store/ObjectsSlice/objects.selectors'
 import { Link, useParams } from 'react-router-dom'
-import { AppRoute } from '../../helpers/consts'
-import { Button } from '../../UI/Button'
+import { AppRoute } from 'src/helpers/consts'
+import { Button } from 'src/UI/Button'
 
 export const ObjectItemPage: FC = () => {
 	const { objId } = useParams()

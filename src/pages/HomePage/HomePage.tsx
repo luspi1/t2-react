@@ -1,6 +1,6 @@
 import { type FC } from 'react'
-import { MainTitle } from '../../UI/MainTitle'
-import { Container } from '../../UI/Container'
+import { MainTitle } from 'src/UI/MainTitle'
+import { Container } from 'src/UI/Container'
 import { Helmet } from 'react-helmet-async'
 
 export const HomePage: FC = () => {

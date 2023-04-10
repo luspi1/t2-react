@@ -1,14 +1,22 @@
 {
+  "parser": "@typescript-eslint/parser",
   "env": {
     "browser": true,
     "es2021": true
   },
   "extends": [
+    "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "standard-with-typescript",
     "prettier"
   ],
   "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ]
+    }
   ],
   "parserOptions": {
     "project": [
@@ -22,6 +30,7 @@
   },
   "plugins": [
     "react",
+    "@typescript-eslint",
     "prettier"
   ],
   "rules": {
@@ -41,6 +50,7 @@
       }
     ],
     "@typescript-eslint/explicit-function-return-type": "off"
-  }
+  },
+  "ignorePatterns": ["vite.config.ts"]
 }
 

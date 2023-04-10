@@ -1,10 +1,10 @@
 import { type FC } from 'react'
 import { generatePath, Link } from 'react-router-dom'
-import { AppRoute, ObjectsStatuses } from '../../../../helpers/consts'
-import { type ObjectItemStatus } from '../../../../types/objects'
-import { AucStatus } from '../../../../UI/AucStatus'
+import { AppRoute, ObjectsStatuses } from 'src/helpers/consts'
+import { type ObjectItemStatus } from 'src/types/objects'
+import { AucStatus } from 'src/UI/AucStatus'
 import styles from './index.module.scss'
-import { Typography } from '../../../../UI/Typography'
+import { Typography } from 'src/UI/Typography'
 
 type ObjectItemProps = {
 	id: number

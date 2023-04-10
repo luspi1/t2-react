@@ -1,6 +1,6 @@
 import { type FC } from 'react'
-import { MainTitle } from '../../UI/MainTitle'
-import { Container } from '../../UI/Container'
+import { MainTitle } from 'src/UI/MainTitle'
+import { Container } from 'src/UI/Container'
 import { ObjectList } from './components/ObjectList/ObjectList'
 import { Helmet } from 'react-helmet-async'
 import { ObjectFiltration } from './components/ObjectFiltration/ObjectFiltration'

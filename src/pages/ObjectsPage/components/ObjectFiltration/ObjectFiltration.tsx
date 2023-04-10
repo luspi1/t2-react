@@ -1,18 +1,22 @@
 import { type FC } from 'react'
-import Select, { type ActionMeta } from 'react-select'
+import Select from 'react-select'
 import { ObjectsOnAucOptions, ObjectsStatusOptions } from '../../consts'
-import { type SelOption } from '../../../../types/select'
-import { useAppDispatch } from '../../../../hooks/store'
-import { setAucStatus, setObjectStatus } from '../../store/ObjectsSlice/objects.slice'
+import { type SelOption } from 'src/types/select'
+import { useAppDispatch } from 'src/hooks/store'
+import {
+	setAucStatus,
+	setObjectStatus,
+	setSearchObject,
+} from 'src/pages/ObjectsPage/store/ObjectsSlice/objects.slice'
 import { Link } from 'react-router-dom'
-import { AppRoute } from '../../../../helpers/consts'
+import { AppRoute } from 'src/helpers/consts'
 
 export const ObjectFiltration: FC = () => {
 	const dispatch = useAppDispatch()
-	const handleFilterSelect = (option: SelOption | null, actionMeta: ActionMeta<SelOption>) => {
+	const handleFilterSelect = (option: SelOption | null) => {
 		dispatch(setObjectStatus(option?.value))
 	}
-	const handleAucSelect = (option: SelOption | null, actionMeta: ActionMeta<SelOption>) => {
+	const handleAucSelect = (option: SelOption | null) => {
 		dispatch(setAucStatus(option?.value))
 	}
 
@@ -23,6 +27,7 @@ export const ObjectFiltration: FC = () => {
 					className='objects__search objects-all__search'
 					type='text'
 					placeholder='Найти объект по коду, названию, адресу или стоимости'
+					onChange={(e) => dispatch(setSearchObject(e.target.value))}
 				/>
 				<svg
 					width='13'

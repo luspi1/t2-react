@@ -1,4 +1,4 @@
-import { type SelOption } from '../../types/select'
+import { type SelOption } from 'src/types/select'
 
 export const ObjectsStatusOptions: SelOption[] = [
 	{ value: 'all', label: 'Все статусы' },

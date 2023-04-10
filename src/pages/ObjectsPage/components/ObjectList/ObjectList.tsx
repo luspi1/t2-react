@@ -1,7 +1,7 @@
 import { type FC } from 'react'
-import { ObjectItem } from '../ObjectItem/ObjectItem'
-import { useAppSelector } from '../../../../hooks/store'
-import { getAllFilteredObjects } from '../../store/ObjectsSlice/objects.selectors'
+import { ObjectItem } from 'src/pages/ObjectsPage/components/ObjectItem/ObjectItem'
+import { useAppSelector } from 'src/hooks/store'
+import { getAllFilteredObjects } from 'src/pages/ObjectsPage/store/ObjectsSlice/objects.selectors'
 
 export const ObjectList: FC = () => {
 	const currentObjects = useAppSelector(getAllFilteredObjects)

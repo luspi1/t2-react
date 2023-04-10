@@ -1,7 +1,7 @@
 import { type FC } from 'react'
 import styles from './index.module.scss'
-import { Container } from '../../UI/Container'
-import { Flex } from '../../UI/Flex'
+import { Container } from 'src/UI/Container'
+import { Flex } from 'src/UI/Flex'
 import { NavigationList } from './components/NavigationList/NavigationList'
 import { PersonalMenu } from './components/PersonalMenu/PersonalMenu'
 

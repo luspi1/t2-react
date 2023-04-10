@@ -1,18 +1,20 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import { AucStatuses, NameSpace, ObjectsStatuses } from '../../../../helpers/consts'
-import { type ObjectItem } from '../../../../types/objects'
-import { objects } from '../../../../mocks/objects'
+import { AucStatuses, NameSpace, ObjectsStatuses } from 'src/helpers/consts'
+import { type ObjectItem } from 'src/types/objects'
+import { objects } from 'src/mocks/objects'
 
 type ObjectsSliceState = {
 	objects: ObjectItem[]
 	objectStatus?: string
 	aucStatus?: string
+	searchObj: string
 }
 
 const initialState: ObjectsSliceState = {
 	objects: [],
 	objectStatus: ObjectsStatuses.all,
 	aucStatus: AucStatuses.all,
+	searchObj: '',
 }
 
 export const objectsSlice = createSlice({
@@ -28,7 +30,11 @@ export const objectsSlice = createSlice({
 		setAucStatus: (state, action: PayloadAction<string | undefined>) => {
 			state.aucStatus = action.payload
 		},
+		setSearchObject: (state, action: PayloadAction<string>) => {
+			state.searchObj = action.payload
+		},
 	},
 })
-export const { setAllObjects, setObjectStatus, setAucStatus } = objectsSlice.actions
+export const { setAllObjects, setObjectStatus, setAucStatus, setSearchObject } =
+	objectsSlice.actions
 export default objectsSlice.reducer

@@ -1,7 +1,7 @@
 import { type FC } from 'react'
 
 import styles from './index.module.scss'
-import { Container } from '../../UI/Container'
+import { Container } from 'src/UI/Container'
 
 export const Footer: FC = () => {
 	return (

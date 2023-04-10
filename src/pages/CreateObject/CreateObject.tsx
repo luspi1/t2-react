@@ -1,7 +1,7 @@
 import { type FC } from 'react'
-import { Container } from '../../UI/Container'
+import { Container } from 'src/UI/Container'
 import { Helmet } from 'react-helmet-async'
-import { MainTitle } from '../../UI/MainTitle'
+import { MainTitle } from 'src/UI/MainTitle'
 
 export const CreateObject: FC = () => {
 	return (
