@@ -11,7 +11,7 @@ import { InfoDocumentsPage } from 'src/pages/InfoDocumentsPage/InfoDocumentsPage
 import { ObjectItemPage } from 'src/pages/ObjectItemPage/ObjectItemPage'
 import { useAppDispatch } from 'src/hooks/store'
 import { setAllObjects } from 'src/pages/ObjectsPage/store/ObjectsSlice/objects.slice'
-import { CreateObject } from 'src/pages/CreateObject/CreateObject'
+import { CreateObjectPage } from 'src/pages/CreateObjectPage/CreateObjectPage'
 
 export const App: FC = () => {
 	const dispatch = useAppDispatch()
@@ -30,7 +30,7 @@ export const App: FC = () => {
 				<Route path={AppRoute.Org} element={<OrganizationsPage />} />
 				<Route path={AppRoute.Auc} element={<AuctionsPage />} />
 				<Route path={AppRoute.Obj} element={<ObjectsPage />} />
-				<Route path={AppRoute.ObjCreate} element={<CreateObject />} />
+				<Route path={AppRoute.ObjCreate} element={<CreateObjectPage />} />
 				<Route path={AppRoute.ObjItem} element={<ObjectItemPage />} />
 				<Route path={AppRoute.InfoDoc} element={<InfoDocumentsPage />} />
 			</Route>

@@ -40,6 +40,12 @@
     "@typescript-eslint/triple-slash-reference": 0,
     "@typescript-eslint/consistent-type-definitions": 0,
     "@typescript-eslint/strict-boolean-expressions": 0,
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        "checksVoidReturn": false
+      }
+    ],
     "@typescript-eslint/ban-types": [
       "error",
       {
@@ -51,6 +57,8 @@
     ],
     "@typescript-eslint/explicit-function-return-type": "off"
   },
-  "ignorePatterns": ["vite.config.ts"]
+  "ignorePatterns": [
+    "vite.config.ts"
+  ]
 }
 

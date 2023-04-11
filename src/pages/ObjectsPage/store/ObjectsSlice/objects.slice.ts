@@ -33,8 +33,11 @@ export const objectsSlice = createSlice({
 		setSearchObject: (state, action: PayloadAction<string>) => {
 			state.searchObj = action.payload
 		},
+		addObject: (state, action: PayloadAction<ObjectItem>) => {
+			state.objects.push(action.payload)
+		},
 	},
 })
-export const { setAllObjects, setObjectStatus, setAucStatus, setSearchObject } =
+export const { addObject, setAllObjects, setObjectStatus, setAucStatus, setSearchObject } =
 	objectsSlice.actions
 export default objectsSlice.reducer
