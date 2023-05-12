@@ -2,6 +2,10 @@ import { type FC } from 'react'
 import { MainTitle } from 'src/UI/MainTitle'
 import { Container } from 'src/UI/Container'
 import { Helmet } from 'react-helmet-async'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import styles from './index.module.scss'
+import cn from 'classnames'
+import { Navigation } from 'swiper'
 
 export const HomePage: FC = () => {
 	return (
@@ -9,7 +13,60 @@ export const HomePage: FC = () => {
 			<Helmet>
 				<title>Главная</title>
 			</Helmet>
+
 			<MainTitle padding='38px 0 32px 20px'>Добро пожаловать, Константин Константинович!</MainTitle>
+			<Swiper
+				className='swiper-main-page-top'
+				spaceBetween={10}
+				slidesPerView={1.8}
+				grabCursor={true}
+				centeredSlides={true}
+				loop={true}
+			>
+				<SwiperSlide>Slide 1</SwiperSlide>
+				<SwiperSlide>Slide 2</SwiperSlide>
+				<SwiperSlide>Slide 3</SwiperSlide>
+				<SwiperSlide>Slide 4</SwiperSlide>
+			</Swiper>
+			<Swiper
+				className={styles.auctionSlider}
+				spaceBetween={10}
+				slidesPerView={4}
+				loop={true}
+				modules={[Navigation]}
+				navigation
+			>
+				<SwiperSlide className={cn(styles.auctionSlide, styles.auctionCompleted)}>
+					<a href='#'>
+						<p>Аукцион завершен</p>
+						<span>604-408-К</span>
+					</a>
+				</SwiperSlide>
+				<SwiperSlide className={cn(styles.auctionSlide, styles.auctionFuture)}>
+					<a href='#'>
+						<p>Аукцион объявлен</p>
+						<span>604-408-К</span>
+					</a>
+				</SwiperSlide>
+				<SwiperSlide className={cn(styles.auctionSlide, styles.auctionCancelled)}>
+					<a href='#'>
+						<p>Аукцион отменен</p>
+						<span>604-408-К</span>
+					</a>
+				</SwiperSlide>
+				<SwiperSlide className={cn(styles.auctionSlide, styles.auctionNow)}>
+					<a href='#'>
+						<p>Начаты торги</p>
+						<span>604-408-К</span>
+					</a>
+				</SwiperSlide>
+				<SwiperSlide className={cn(styles.auctionSlide, styles.auctionCancelled)}>
+					<a href='#'>
+						<p>Аукцион отменен</p>
+						<span>604-408-К</span>
+					</a>
+				</SwiperSlide>
+			</Swiper>
 			<section className='section attention'>
 				<div className='container'>
 					<ul className='attention__list' data-list='changeable'>
