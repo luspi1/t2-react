@@ -1,5 +1,6 @@
 export enum AppRoute {
-	Main = '/',
+	Login = '/login',
+	Home = '/',
 	Org = '/organizations',
 	Auc = '/auctions',
 	Obj = '/objects',
@@ -10,6 +11,7 @@ export enum AppRoute {
 
 export enum NameSpace {
 	Objects = 'OBJECTS',
+	Login = 'LOGIN',
 }
 
 export enum ObjectsStatuses {

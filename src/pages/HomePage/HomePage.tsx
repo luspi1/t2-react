@@ -5,7 +5,6 @@ import { Helmet } from 'react-helmet-async'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import styles from './index.module.scss'
 import cn from 'classnames'
-import { Navigation } from 'swiper'
 
 export const HomePage: FC = () => {
 	return (
@@ -28,14 +27,7 @@ export const HomePage: FC = () => {
 				<SwiperSlide>Slide 3</SwiperSlide>
 				<SwiperSlide>Slide 4</SwiperSlide>
 			</Swiper>
-			<Swiper
-				className={styles.auctionSlider}
-				spaceBetween={10}
-				slidesPerView={4}
-				loop={true}
-				modules={[Navigation]}
-				navigation
-			>
+			<Swiper className={styles.auctionSlider} spaceBetween={10} slidesPerView={4} loop={true}>
 				<SwiperSlide className={cn(styles.auctionSlide, styles.auctionCompleted)}>
 					<a href='#'>
 						<p>Аукцион завершен</p>

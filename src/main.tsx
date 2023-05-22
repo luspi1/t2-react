@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import { store } from './store'
 import { HelmetProvider } from 'react-helmet-async'
 
+import 'normalize.css/normalize.css'
 import 'react-toastify/dist/ReactToastify.css'
 import 'swiper/css'
 import 'swiper/css/navigation'

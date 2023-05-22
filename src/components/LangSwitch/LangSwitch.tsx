@@ -1,10 +1,12 @@
 import { type FC, type PropsWithChildren, useState } from 'react'
-import uzbLang from '../../../../assets/img/uzb-lang.png'
-import ruLang from '../../../../assets/img/ru-lang.png'
+import uzbLang from '../../assets/img/uzb-lang.png'
+import ruLang from '../../assets/img/ru-lang.png'
 import styled from 'styled-components'
+import cn from 'classnames'
 
 type LangBtnProps = PropsWithChildren<{
 	active?: boolean
+	className?: string
 }>
 
 const LangBtn = styled.button<LangBtnProps>`
@@ -29,11 +31,11 @@ const LangBtn = styled.button<LangBtnProps>`
 		display: ${({ active }) => (active === true ? 'none' : 'block')};
 	}
 `
-export const LangSwitch: FC = () => {
+export const LangSwitch: FC<LangBtnProps> = ({ className }) => {
 	const [activeLang, setActiveLang] = useState<'ru' | 'uzb'>('ru')
 
 	return (
-		<div className='main-menu__lang-switch'>
+		<div className={cn('main-menu__lang-switch', className)}>
 			<LangBtn
 				type='button'
 				title='Oʻzbek'

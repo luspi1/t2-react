@@ -2,8 +2,12 @@ import { type FC, type PropsWithChildren } from 'react'
 import styled, { css } from 'styled-components'
 
 type ButtonProps = PropsWithChildren<{
+	type?: 'button' | 'submit' | 'reset' | undefined
+	onClick?: () => void
+	className?: string
 	padding?: string
 	margin?: string
+	width?: string
 	color?: string
 	size?: string
 	weight?: string
@@ -21,11 +25,13 @@ const StyledButton = styled.button<ButtonProps>`
 	cursor: pointer;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	line-height: ${({ lineHeight }) => lineHeight ?? '20px'};
 	font-weight: ${({ weight }) => weight ?? '700'};
 	font-size: ${({ size }) => size ?? '14px'};
 	padding: ${({ padding }) => padding ?? '12px 22px'};
 	margin: ${({ margin }) => margin ?? '0'};
+	width: ${({ width }) => width ?? 'auto'};
 	color: ${({ color }) => color ?? '#ffffff'};
 	background-color: ${({ background }) => background ?? '#337390'};
 	border-radius: ${({ radius }) => radius ?? '3px'};

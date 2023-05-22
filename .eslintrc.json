@@ -38,6 +38,7 @@
     "prettier/prettier": "error",
     "react/prop-types": 0,
     "@typescript-eslint/triple-slash-reference": 0,
+    "@typescript-eslint/no-confusing-void-expression": 0,
     "@typescript-eslint/consistent-type-definitions": 0,
     "@typescript-eslint/strict-boolean-expressions": 0,
     "@typescript-eslint/no-misused-promises": [

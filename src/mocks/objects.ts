@@ -18,7 +18,7 @@ export const objects: ObjectItem[] = [
 	},
 	{
 		id: 2,
-		objectCode: '5563-764-Д',
+		objectCode: '8876-764-Д',
 		objectSize: 125,
 		objectPriceInRubles: 800_000_123,
 		auctionObjectStatus: {
