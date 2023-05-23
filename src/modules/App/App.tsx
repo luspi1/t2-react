@@ -18,7 +18,7 @@ export const App: FC = () => {
 	const dispatch = useAppDispatch()
 	const isRenderedRef = useRef<boolean>(false)
 
-	const [isAuth] = useState(false)
+	const [isAuth] = useState(true)
 	const navigate = useNavigate()
 
 	useEffect(() => {

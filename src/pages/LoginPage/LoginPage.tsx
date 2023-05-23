@@ -1,10 +1,7 @@
 import { type FC } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Container } from 'src/UI/Container'
-import { Modal } from 'src/UI/Modal/Modal'
-import { MainAuthModal } from 'src/pages/LoginPage/components/MainAuthModal/MainAuthModal'
-
-import styles from './index.module.scss'
+import { LoginModal } from 'src/modules/LoginModal/LoginModal'
 
 export const LoginPage: FC = () => {
 	return (
@@ -12,9 +9,7 @@ export const LoginPage: FC = () => {
 			<Helmet>
 				<title>Авторизация</title>
 			</Helmet>
-			<Modal className={styles.loginModal} active={true}>
-				<MainAuthModal />
-			</Modal>
+			<LoginModal />
 		</Container>
 	)
 }
