@@ -7,7 +7,7 @@ type ErrorWarningProps = {
 
 const StyledWarning = styled.p`
 	padding: 10px 0;
-	color: #ff4e4e;
+	color: #ff4e4e !important;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 500;
 	font-size: 16px;

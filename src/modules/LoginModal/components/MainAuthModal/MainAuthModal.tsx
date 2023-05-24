@@ -35,7 +35,12 @@ export const MainAuthModal: FC = () => {
 				Если Вы не прошли регистрацию и верификацию на Госуслугах, воспользуйтесь методом
 				регистрации вручную (это сложнее и требует специального подтверждения).
 			</p>
-			<Button background='#66ACCC' width='100%' margin='0 0 30px 0'>
+			<Button
+				background='#66ACCC'
+				width='100%'
+				margin='0 0 30px 0'
+				onClick={() => dispatch(setModalState(ModalStates.Reg))}
+			>
 				регистрация вручную
 			</Button>
 

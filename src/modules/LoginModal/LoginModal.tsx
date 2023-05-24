@@ -7,6 +7,7 @@ import { useAppSelector } from 'src/hooks/store'
 import { NameSpace } from 'src/helpers/consts'
 import styles from './index.module.scss'
 import { AuthModal } from 'src/modules/LoginModal/components/AuthModal/AuthModal'
+import { RegModal } from 'src/modules/LoginModal/components/RegModal/RegModal'
 
 const renderModalState = (state: ModalStates) => {
 	switch (state) {
@@ -16,6 +17,8 @@ const renderModalState = (state: ModalStates) => {
 			return <EsiaLoginModal />
 		case ModalStates.Login:
 			return <AuthModal />
+		case ModalStates.Reg:
+			return <RegModal />
 		default:
 			return <MainAuthModal />
 	}

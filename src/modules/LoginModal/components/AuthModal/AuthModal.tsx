@@ -1,44 +1,112 @@
-import { type FC } from 'react'
+import React, { type FC } from 'react'
+import { Controller, type SubmitHandler, useForm } from 'react-hook-form'
+import { type AuthForm } from 'src/modules/LoginModal/components/AuthModal/types'
+
 import { Button } from 'src/UI/Button'
+import { ErrorWarning } from 'src/UI/ErrorWarning'
+
 import { LangSwitch } from 'src/components/LangSwitch/LangSwitch'
 import { MainInput } from 'src/UI/MainInput/MainInput'
-import { MailIconSvg } from 'src/UI/icons/MailIconSVG'
-import { PhoneIconSvg } from 'src/UI/icons/PhoneIconSVG'
-import { LockIconSvg } from 'src/UI/icons/LockIconSVG'
 
 import styles from 'src/modules/LoginModal/components/AuthModal/index.module.scss'
 import mainStyles from 'src/modules/LoginModal/index.module.scss'
+import cn from 'classnames'
+
 import { useAppDispatch } from 'src/hooks/store'
 import { setModalState } from 'src/modules/LoginModal/store/login-slice/login.slice'
 import { ModalStates } from 'src/pages/LoginPage/consts'
-import cn from 'classnames'
+import { PhoneIconSvg } from 'src/UI/icons/PhoneIconSVG'
+import { MailIconSvg } from 'src/UI/icons/MailIconSVG'
+import { LockIconSvg } from 'src/UI/icons/LockIconSVG'
 
 export const AuthModal: FC = () => {
 	const dispatch = useAppDispatch()
+
+	const { handleSubmit, control, watch } = useForm<AuthForm>({ mode: 'onBlur' })
+
+	const phoneLoginValues = watch('loginPhone')
+	const loginValues = watch('login')
+	const passwordValues = watch('password')
+	const onSubmit: SubmitHandler<AuthForm> = (data) => {
+		console.log(data)
+	}
+
 	return (
 		<div className={styles.authModal}>
 			<LangSwitch className={mainStyles.loginLangSwitch} />
 			<h1>АВТОРИЗАЦИЯ</h1>
 
-			<form className={mainStyles.borderBottom} action='#'>
+			<form className={mainStyles.borderBottom} onSubmit={handleSubmit(onSubmit)}>
 				<p className={mainStyles.inputDesc}>Номер мобильного телефона*</p>
-				<MainInput
-					svg={<PhoneIconSvg />}
-					type='phone'
-					name='userPhone'
-					placeholder='+ 7 888 999 0022'
+
+				<Controller
+					name='loginPhone'
+					control={control}
+					rules={{
+						required:
+							!loginValues && !passwordValues ? 'Введите телефон или логин с паролем' : false,
+					}}
+					render={({ field: { onChange, onBlur, value, ref }, fieldState: { error } }) => (
+						<>
+							<MainInput
+								svg={<PhoneIconSvg />}
+								onChange={onChange}
+								onBlur={onBlur}
+								inputRef={ref}
+								value={value || ''}
+								type='phone'
+								placeholder='+ 7 888 999 0022'
+							/>
+							<ErrorWarning errorText={error?.message} />
+						</>
+					)}
 				/>
+
 				<span className={mainStyles.or}>или</span>
 
 				<p className={mainStyles.inputDesc}>Адрес электронной почты*</p>
-				<MainInput
-					svg={<MailIconSvg />}
-					type='email'
-					name='userEmail'
-					placeholder='+ 7 888 999 0022'
+				<Controller
+					name='login'
+					control={control}
+					rules={{
+						required: !phoneLoginValues ? 'Введите телефон или логин с' + ' паролем' : false,
+					}}
+					render={({ field: { onChange, onBlur, value, ref }, fieldState: { error } }) => (
+						<>
+							<MainInput
+								svg={<MailIconSvg />}
+								onChange={onChange}
+								onBlur={onBlur}
+								inputRef={ref}
+								value={value || ''}
+								type='email'
+								placeholder='konstantin@konstantin.com'
+							/>
+							<ErrorWarning errorText={error?.message} />
+						</>
+					)}
 				/>
 				<p className={mainStyles.inputDesc}>Пароль*</p>
-				<MainInput svg={<LockIconSvg />} type='password' name='userPassword' />
+				<Controller
+					name='password'
+					control={control}
+					rules={{
+						required: !phoneLoginValues ? 'Введите телефон или логин' + ' с паролем' : false,
+					}}
+					render={({ field: { onChange, onBlur, value, ref }, fieldState: { error } }) => (
+						<>
+							<MainInput
+								svg={<LockIconSvg />}
+								onChange={onChange}
+								onBlur={onBlur}
+								inputRef={ref}
+								value={value || ''}
+								type='password'
+							/>
+							<ErrorWarning errorText={error?.message} />
+						</>
+					)}
+				/>
 				<Button background='#ffffff' color='#337390' width='130px' margin='0 auto' type='submit'>
 					Войти
 				</Button>
@@ -60,7 +128,7 @@ export const AuthModal: FC = () => {
 			<Button
 				background='#66ACCC'
 				margin='0 auto'
-				onClick={() => dispatch(setModalState(ModalStates.Esia))}
+				onClick={() => dispatch(setModalState(ModalStates.Reg))}
 			>
 				зарегистрироваться
 			</Button>

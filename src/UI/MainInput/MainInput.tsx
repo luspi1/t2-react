@@ -1,13 +1,17 @@
-import { type FC, type HTMLInputTypeAttribute, type ReactNode } from 'react'
+import { type FC, type HTMLInputTypeAttribute, type ReactNode, type RefCallback } from 'react'
 import styled, { css } from 'styled-components'
 import styles from './index.module.scss'
 
 type MainInputProps = {
-	name: string
 	type: HTMLInputTypeAttribute
+	value?: string | number
+	name?: string
 	svg?: ReactNode
+	inputRef?: RefCallback<string>
 	placeholder?: string
 	onInput?: () => void
+	onChange?: () => void
+	onBlur?: () => void
 	className?: string
 	padding?: string
 	margin?: string
