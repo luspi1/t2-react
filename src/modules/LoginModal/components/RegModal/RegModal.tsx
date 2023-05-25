@@ -8,7 +8,6 @@ import { MainInput } from 'src/UI/MainInput/MainInput'
 import { ErrorWarning } from 'src/UI/ErrorWarning'
 import { Controller, type SubmitHandler, useForm } from 'react-hook-form'
 import { type RegForm } from 'src/modules/LoginModal/components/RegModal/types'
-import { PhoneIconSvg } from 'src/UI/icons/PhoneIconSVG'
 
 export const RegModal: FC = () => {
 	const { handleSubmit, control } = useForm<RegForm>({ mode: 'onBlur' })
