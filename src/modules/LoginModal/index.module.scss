@@ -1,7 +1,7 @@
 .loginModal {
   border-radius: 24px;
   background-color: #337390;
-  padding: 57px 85px 83px;
+  padding: 57px 80px 83px;
   width: 650px;
   @media (max-width: 768px) {
     padding: 30px 45px 40px;
@@ -27,7 +27,6 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 17px;
-    text-transform: capitalize;
     color: #FFFFFF;
 
     &:not(:last-child) {
@@ -88,3 +87,4 @@
   text-align: center;
   max-width: 432px;
 }
+

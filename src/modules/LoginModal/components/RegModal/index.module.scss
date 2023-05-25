@@ -1,5 +1,34 @@
 .regModal {
   form {
     margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    label {
+      font-family: 'Montserrat';
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+      color: #FFFFFF;
+      margin-bottom: 3px;
+      display: block;
+    }
+  }
+
+  p {
+    text-align: center
+  }
+
+}
+
+.inputGroup {
+  margin-bottom: 15px;
+}
+
+.formStep {
+  width: 80%;
+  @media (max-width: 768px) {
+    width: 100%;
   }
 }
