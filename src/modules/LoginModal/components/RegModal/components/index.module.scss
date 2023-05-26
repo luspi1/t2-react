@@ -1,0 +1,20 @@
+.regController {
+  display: flex;
+  justify-content: center;
+  margin-top: 45px;
+
+  button {
+    height: 40px;
+    background: #66ACCC;
+    border-radius: 3px;
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+    span {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: #fff;
+    }
+  }
+}

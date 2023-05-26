@@ -3,11 +3,12 @@ export type BankAccounts = {
 	bankMFO: string
 	bankName_RU: string
 	checkingAccount: string
-	bankDateAdded: Date
-	bankDateEnded: Date
+	bankDateAdded: string
+	bankDateEnded: string
 }
 export type Documents = {
-	scans: string | string[]
+	scanFiles: any
+	scans: string
 	description: string
 }
 
@@ -17,13 +18,14 @@ export type RegForm = {
 	patronymicName_RU: string
 	email: string
 	password: string
-	dataBirth: Date
+	passwordRepeat: string
+	dataBirth: string
 	placeOfBirth_RU: string
 	inn: string
 	seriesAndNumber: string
 	issuedBy_RU: string
-	dateOfIssue: Date
-	validity: Date
+	dateOfIssue: string
+	validity: string
 	placeOfPermanentReg_RU: string
 	mobileNumber: string
 	bankAccounts: BankAccounts
