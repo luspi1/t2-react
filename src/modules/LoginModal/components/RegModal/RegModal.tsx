@@ -3,6 +3,7 @@ import React, { type FC, useState } from 'react'
 import styles from './index.module.scss'
 import mainStyles from 'src/modules/LoginModal/index.module.scss'
 import { MainInput } from 'src/UI/MainInput/MainInput'
+import MaskedInput from 'react-text-mask'
 
 import { ErrorWarning } from 'src/UI/ErrorWarning'
 import { Controller, type SubmitHandler, useForm } from 'react-hook-form'
@@ -11,6 +12,7 @@ import { RegController } from 'src/modules/LoginModal/components/RegModal/compon
 import { MainTextarea } from 'src/UI/MainTextarea'
 import { Button } from 'src/UI/Button'
 import { LockIconSvg } from 'src/UI/icons/LockIconSVG'
+import cn from 'classnames'
 
 export const RegModal: FC = () => {
 	const [regStep, setRegStep] = useState<number>(1)
@@ -138,13 +140,14 @@ export const RegModal: FC = () => {
 								}}
 								render={({ field: { onChange, onBlur, value, ref }, fieldState: { error } }) => (
 									<>
-										<MainInput
+										<MaskedInput
 											onChange={onChange}
 											onBlur={onBlur}
-											inputRef={ref}
+											ref={ref}
 											value={value || ''}
-											type='text'
+											mask={[/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/]}
 										/>
+
 										<ErrorWarning errorText={error?.message} />
 									</>
 								)}
@@ -523,7 +526,7 @@ export const RegModal: FC = () => {
 
 				{regStep === 5 && (
 					<div className={styles.formStep}>
-						<div className={styles.inputGroup}>
+						<div className={cn(styles.inputGroup, styles.borderBottom)}>
 							<label>Введите номер мобильного телефона*</label>
 							<Controller
 								name='mobileNumber'
@@ -534,7 +537,6 @@ export const RegModal: FC = () => {
 								render={({ field: { onChange, onBlur, value, ref }, fieldState: { error } }) => (
 									<>
 										<MainInput
-											className={mainStyles.borderBottom}
 											onChange={onChange}
 											onBlur={onBlur}
 											inputRef={ref}
@@ -612,7 +614,7 @@ export const RegModal: FC = () => {
 								)}
 							/>
 						</div>
-						<Button type='submit' background='#66ACCC' width='80%'>
+						<Button type='submit' background='#66ACCC' margin='60px 0 0 0' width='80%'>
 							подать заявку
 						</Button>
 					</div>
