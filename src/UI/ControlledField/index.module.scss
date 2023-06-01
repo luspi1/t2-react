@@ -1,0 +1,38 @@
+.controlledField {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 20px;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 10px 10px 10px 20px;
+  margin: 0;
+  width: 100%;
+  color: #3D3D3D;
+  background-color: #fff;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+
+  &._disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+
+}
+
+.fieldWrapper {
+  position: relative;
+  margin-bottom: 20px;
+
+  svg {
+    position: absolute;
+    left: 9px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.isSvg {
+  padding-left: 30px;
+}
+

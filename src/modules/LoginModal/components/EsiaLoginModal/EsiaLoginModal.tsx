@@ -1,22 +1,39 @@
-import { type FC } from 'react'
+import React, { type FC } from 'react'
+import { type FieldValues, type SubmitHandler, useForm } from 'react-hook-form'
+import { dateMask } from 'src/helpers/masks'
+
 import { Button } from 'src/UI/Button'
-import { MainInput } from 'src/UI/MainInput/MainInput'
+import { ControlledField } from 'src/UI/ControlledField/СontrolledField'
+import { MailIconSvg } from 'src/UI/icons/MailIconSVG'
+import mainStyles from '../../index.module.scss'
 
 import styles from './index.module.scss'
-import mainStyles from '../../index.module.scss'
-import { MailIconSvg } from 'src/UI/icons/MailIconSVG'
 
 export const EsiaLoginModal: FC = () => {
+	const { handleSubmit, control } = useForm<FieldValues>({
+		mode: 'onBlur',
+		defaultValues: {
+			userEmail: '',
+		},
+	})
+
+	const onSubmit: SubmitHandler<FieldValues> = (data) => {
+		console.log(data)
+	}
+
 	return (
 		<div className={styles.esiaModal}>
 			<h1>АВТОРИЗАЦИЯ ЧЕРЕЗ ЕСИА</h1>
-			<form action='#'>
+			<form onSubmit={handleSubmit(onSubmit)}>
 				<p className={mainStyles.inputDesc}>Учетная запись</p>
-				<MainInput
-					svg={<MailIconSvg />}
-					type='email'
-					name='userEmail'
+
+				<ControlledField
 					placeholder='konstantin@konstantin.com'
+					control={control}
+					name='userEmail'
+					type='email'
+					svg={<MailIconSvg />}
+					rules={{ required: true }}
 				/>
 
 				<p>

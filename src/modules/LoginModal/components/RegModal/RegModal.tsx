@@ -1,18 +1,20 @@
+import cn from 'classnames'
 import React, { type FC, useState } from 'react'
-
-import styles from './index.module.scss'
-import mainStyles from 'src/modules/LoginModal/index.module.scss'
-import { MainInput } from 'src/UI/MainInput/MainInput'
+import { Controller, type SubmitHandler, useForm } from 'react-hook-form'
 import MaskedInput from 'react-text-mask'
+import { RegController } from 'src/modules/LoginModal/components/RegModal/components/RegController'
+import { type RegForm } from 'src/modules/LoginModal/components/RegModal/types'
+import mainStyles from 'src/modules/LoginModal/index.module.scss'
+import { Button } from 'src/UI/Button'
 
 import { ErrorWarning } from 'src/UI/ErrorWarning'
-import { Controller, type SubmitHandler, useForm } from 'react-hook-form'
-import { type RegForm } from 'src/modules/LoginModal/components/RegModal/types'
-import { RegController } from 'src/modules/LoginModal/components/RegModal/components/RegController'
-import { MainTextarea } from 'src/UI/MainTextarea'
-import { Button } from 'src/UI/Button'
+import { FileInput } from 'src/UI/FileInput/FileInput'
 import { LockIconSvg } from 'src/UI/icons/LockIconSVG'
-import cn from 'classnames'
+
+import { MainInput } from 'src/UI/MainInput/MainInput'
+import { MainTextarea } from 'src/UI/MainTextarea'
+
+import styles from './index.module.scss'
 
 export const RegModal: FC = () => {
 	const [regStep, setRegStep] = useState<number>(1)
@@ -39,14 +41,28 @@ export const RegModal: FC = () => {
 			<div className={styles.successStep}>
 				<h1>ВАША ЗАЯВКА УСПЕШНО ЗАРЕГИСТРИРОВАНА</h1>
 				<p>Пожалуйста, введите код, отправленный на указанный Вами номер телефона:</p>
-				<form action=''>
-					<MainInput
-						svg={<LockIconSvg />}
-						name='phoneCode'
-						type='password'
-						width='130px'
-						margin='0 auto'
+				<form>
+					<Controller
+						name='secondName_RU'
+						control={control}
+						rules={{
+							required: 'Введите фамилию',
+						}}
+						render={({ field: { onChange, onBlur, value, ref }, fieldState: { error } }) => (
+							<>
+								<MainInput
+									svg={<LockIconSvg />}
+									name='phoneCode'
+									type='password'
+									width='130px'
+									margin='0 auto'
+									innerRef={ref}
+								/>
+								<ErrorWarning errorText={error?.message} />
+							</>
+						)}
 					/>
+
 					<Button type='submit' background='#66ACCC' width='230px'>
 						Войти на сайт
 					</Button>
@@ -60,7 +76,7 @@ export const RegModal: FC = () => {
 			<h1>САМОСТОЯТЕЛЬНАЯ РЕГИСТРАЦИЯ</h1>
 			<p>нового пользователя</p>
 			<ErrorWarning errorText='Пожалуйста, заполните все поля' />
-			<form onSubmit={handleSubmit(onSubmit)}>
+			<form onSubmit={handleSubmit(onSubmit)} noValidate>
 				{regStep === 1 && (
 					<div className={styles.formStep}>
 						<div className={styles.inputGroup}>
@@ -76,9 +92,9 @@ export const RegModal: FC = () => {
 										<MainInput
 											onChange={onChange}
 											onBlur={onBlur}
-											inputRef={ref}
 											value={value || ''}
 											type='text'
+											innerRef={ref}
 										/>
 										<ErrorWarning errorText={error?.message} />
 									</>
@@ -98,7 +114,7 @@ export const RegModal: FC = () => {
 										<MainInput
 											onChange={onChange}
 											onBlur={onBlur}
-											inputRef={ref}
+											innerRef={ref}
 											value={value || ''}
 											type='text'
 										/>
@@ -120,7 +136,7 @@ export const RegModal: FC = () => {
 										<MainInput
 											onChange={onChange}
 											onBlur={onBlur}
-											inputRef={ref}
+											innerRef={ref}
 											value={value || ''}
 											type='text'
 										/>
@@ -166,7 +182,7 @@ export const RegModal: FC = () => {
 										<MainInput
 											onChange={onChange}
 											onBlur={onBlur}
-											inputRef={ref}
+											innerRef={ref}
 											value={value || ''}
 											type='text'
 										/>
@@ -189,7 +205,7 @@ export const RegModal: FC = () => {
 										<MainInput
 											onChange={onChange}
 											onBlur={onBlur}
-											inputRef={ref}
+											innerRef={ref}
 											value={value || ''}
 											type='text'
 										/>
@@ -215,7 +231,7 @@ export const RegModal: FC = () => {
 										<MainInput
 											onChange={onChange}
 											onBlur={onBlur}
-											inputRef={ref}
+											innerRef={ref}
 											value={value || ''}
 											type='text'
 										/>
@@ -258,7 +274,7 @@ export const RegModal: FC = () => {
 										<MainInput
 											onChange={onChange}
 											onBlur={onBlur}
-											inputRef={ref}
+											innerRef={ref}
 											value={value || ''}
 											type='text'
 										/>
@@ -280,7 +296,7 @@ export const RegModal: FC = () => {
 										<MainInput
 											onChange={onChange}
 											onBlur={onBlur}
-											inputRef={ref}
+											innerRef={ref}
 											value={value || ''}
 											type='text'
 										/>
@@ -328,7 +344,7 @@ export const RegModal: FC = () => {
 										<MainInput
 											onChange={onChange}
 											onBlur={onBlur}
-											inputRef={ref}
+											innerRef={ref}
 											value={value || ''}
 											type='text'
 										/>
@@ -413,7 +429,7 @@ export const RegModal: FC = () => {
 										<MainInput
 											onChange={onChange}
 											onBlur={onBlur}
-											inputRef={ref}
+											innerRef={ref}
 											value={value || ''}
 											type='text'
 										/>
@@ -435,7 +451,7 @@ export const RegModal: FC = () => {
 										<MainInput
 											onChange={onChange}
 											onBlur={onBlur}
-											inputRef={ref}
+											innerRef={ref}
 											value={value || ''}
 											type='text'
 										/>
@@ -450,23 +466,8 @@ export const RegModal: FC = () => {
 					<div className={styles.formStep}>
 						<div className={styles.inputGroup}>
 							<label>Приложите сканы документа*</label>
-							{/* <Controller */}
-							{/*	name='documents.scanFiles' */}
-							{/*	control={control} */}
-							{/*	render={({ field: { value, ref }, fieldState: { error } }) => ( */}
-							{/*		<Dropzone ref={ref} onDrop={(acceptedFiles) => (value = acceptedFiles)}> */}
-							{/*			{({ getRootProps, getInputProps }) => ( */}
-							{/*				<section> */}
-							{/*					<div {...getRootProps()}> */}
-							{/*						<input {...getInputProps()} /> */}
-							{/*						<p>Перетяните изображение в это поле или</p> */}
-							{/*						<p>Загрузите файл</p> */}
-							{/*					</div> */}
-							{/*				</section> */}
-							{/*			)} */}
-							{/*		</Dropzone> */}
-							{/*	)} */}
-							{/* /> */}
+
+							<FileInput control={control} name='documents.scanFiles' />
 						</div>
 
 						<span className={mainStyles.or}>или</span>
@@ -483,7 +484,7 @@ export const RegModal: FC = () => {
 										<MainInput
 											onChange={onChange}
 											onBlur={onBlur}
-											inputRef={ref}
+											innerRef={ref}
 											value={value || ''}
 											type='text'
 										/>
@@ -539,7 +540,7 @@ export const RegModal: FC = () => {
 										<MainInput
 											onChange={onChange}
 											onBlur={onBlur}
-											inputRef={ref}
+											innerRef={ref}
 											value={value || ''}
 											type='text'
 										/>
@@ -561,7 +562,7 @@ export const RegModal: FC = () => {
 										<MainInput
 											onChange={onChange}
 											onBlur={onBlur}
-											inputRef={ref}
+											innerRef={ref}
 											value={value || ''}
 											type='email'
 										/>
@@ -583,7 +584,7 @@ export const RegModal: FC = () => {
 										<MainInput
 											onChange={onChange}
 											onBlur={onBlur}
-											inputRef={ref}
+											innerRef={ref}
 											value={value || ''}
 											type='password'
 										/>
@@ -605,7 +606,7 @@ export const RegModal: FC = () => {
 										<MainInput
 											onChange={onChange}
 											onBlur={onBlur}
-											inputRef={ref}
+											innerRef={ref}
 											value={value || ''}
 											type='password'
 										/>

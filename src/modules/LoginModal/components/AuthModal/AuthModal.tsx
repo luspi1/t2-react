@@ -77,8 +77,8 @@ export const AuthModal: FC = () => {
 								svg={<MailIconSvg />}
 								onChange={onChange}
 								onBlur={onBlur}
-								inputRef={ref}
-								value={value || ''}
+								innerRef={ref}
+								value={value}
 								type='email'
 								placeholder='konstantin@konstantin.com'
 							/>

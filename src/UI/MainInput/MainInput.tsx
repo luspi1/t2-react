@@ -1,16 +1,24 @@
-import { type FC, type HTMLInputTypeAttribute, type ReactNode, type RefCallback } from 'react'
+import React, {
+	type ChangeEventHandler,
+	type FC,
+	type HTMLInputTypeAttribute,
+	type ReactNode,
+} from 'react'
+import { useController, type UseControllerProps } from 'react-hook-form'
+import MaskedInput, { type Mask } from 'react-text-mask'
 import styled, { css } from 'styled-components'
 import styles from './index.module.scss'
 
 type MainInputProps = {
 	type: HTMLInputTypeAttribute
+	mask?: Mask | ((value: string) => Mask)
 	value?: string | number
 	name?: string
 	svg?: ReactNode
-	inputRef?: RefCallback<string>
+	innerRef: (inputElement: HTMLElement) => void
 	placeholder?: string
 	onInput?: () => void
-	onChange?: () => void
+	onChange?: ChangeEventHandler<HTMLInputElement>
 	onBlur?: () => void
 	className?: string
 	padding?: string
@@ -49,15 +57,26 @@ const StyledMainInput = styled.input<MainInputProps>`
 		`};
 `
 
-export const MainInput: FC<MainInputProps> = (props) => {
+export const MainInput: FC<MainInputProps & UseControllerProps> = (props) => {
+	const { field } = useController(props)
+
 	if (props.svg) {
 		return (
 			<div className={styles.mainInputWrapper}>
 				{props.svg}
-				<StyledMainInput {...props} />
+				<MaskedInput
+					mask={props.mask ?? []}
+					{...field}
+					render={(ref, props) => <StyledMainInput type='text' innerRef={ref} {...props} />}
+				/>
 			</div>
 		)
 	}
 
-	return <StyledMainInput {...props} />
+	return (
+		<MaskedInput
+			mask={props.mask ?? []}
+			render={(ref, props) => <StyledMainInput innerRef={ref} {...props} />}
+		/>
+	)
 }
