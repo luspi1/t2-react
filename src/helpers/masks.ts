@@ -1,4 +1,4 @@
-import { createAutoCorrectedDatePipe, createNumberMask } from 'text-mask-addons'
+import { createNumberMask } from 'text-mask-addons'
 
 export const currencyMask = createNumberMask({
 	prefix: '',
@@ -7,3 +7,9 @@ export const currencyMask = createNumberMask({
 })
 
 export const dateMask = [/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/]
+
+export const positiveNumber = createNumberMask({
+	prefix: '',
+	positive: true,
+	thousandsSeparatorSymbol: '',
+})

@@ -1,6 +1,5 @@
 import React, { type FC } from 'react'
 import { type FieldValues, type SubmitHandler, useForm } from 'react-hook-form'
-import { dateMask } from 'src/helpers/masks'
 
 import { Button } from 'src/UI/Button'
 import { ControlledField } from 'src/UI/ControlledField/СontrolledField'
@@ -10,7 +9,11 @@ import mainStyles from '../../index.module.scss'
 import styles from './index.module.scss'
 
 export const EsiaLoginModal: FC = () => {
-	const { handleSubmit, control } = useForm<FieldValues>({
+	const {
+		handleSubmit,
+		control,
+		formState: { errors },
+	} = useForm<FieldValues>({
 		mode: 'onBlur',
 		defaultValues: {
 			userEmail: '',
@@ -24,18 +27,17 @@ export const EsiaLoginModal: FC = () => {
 	return (
 		<div className={styles.esiaModal}>
 			<h1>АВТОРИЗАЦИЯ ЧЕРЕЗ ЕСИА</h1>
-			<form onSubmit={handleSubmit(onSubmit)}>
+			<form noValidate onSubmit={handleSubmit(onSubmit)}>
 				<p className={mainStyles.inputDesc}>Учетная запись</p>
-
 				<ControlledField
 					placeholder='konstantin@konstantin.com'
 					control={control}
 					name='userEmail'
 					type='email'
 					svg={<MailIconSvg />}
-					rules={{ required: true }}
+					rules={{ required: 'Заполните поле email!' }}
+					errors={errors}
 				/>
-
 				<p>
 					При регистрации пользователя через ЕСИА, АИС свяжется с системой государственных услуг и
 					опознает Вас автоматически в случае, если Вы зарегистрированы и верифицированы на портале

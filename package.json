@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hookform/error-message": "^2.0.1",
+    "@hookform/resolvers": "^3.1.0",
     "@reduxjs/toolkit": "^1.9.3",
     "@types/react-redux": "^7.1.25",
     "@types/react-text-mask": "^5.4.11",
@@ -32,7 +34,8 @@
     "react-toastify": "^9.1.2",
     "sass": "^1.60.0",
     "styled-components": "^5.3.9",
-    "swiper": "9.3.1"
+    "swiper": "9.3.1",
+    "yup": "^1.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

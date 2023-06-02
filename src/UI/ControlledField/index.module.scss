@@ -1,3 +1,4 @@
+
 .controlledField {
   font-family: 'Montserrat', sans-serif;
   line-height: 20px;
@@ -22,8 +23,6 @@
 
 .fieldWrapper {
   position: relative;
-  margin-bottom: 20px;
-
   svg {
     position: absolute;
     left: 9px;
@@ -32,7 +31,19 @@
   }
 }
 
-.isSvg {
-  padding-left: 30px;
-}
+.fieldEl {
+  .isSvg {
+    padding-left: 30px;
+  }
 
+  .warningMessage {
+    padding: 5px 0;
+    margin: 0;
+    color: #ff4e4e !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+}
