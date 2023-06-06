@@ -4,10 +4,12 @@ import React, { type FC, useState } from 'react'
 import { type FieldValues, type SubmitHandler, useForm } from 'react-hook-form'
 import { positiveNumber } from 'src/helpers/masks'
 import { RegController } from 'src/modules/LoginModal/components/RegModal/components/RegController'
+import { NameMap } from 'src/modules/LoginModal/components/RegModal/consts'
 import { regSchema } from 'src/modules/LoginModal/components/RegModal/schema'
 import mainStyles from 'src/modules/LoginModal/index.module.scss'
 import { Button } from 'src/UI/Button'
 import { ControlledField } from 'src/UI/ControlledField/СontrolledField'
+import { ControlledTextarea } from 'src/UI/ControlledTextarea/ControlledTextarea'
 
 import { ErrorWarning } from 'src/UI/ErrorWarning'
 import { FileInput } from 'src/UI/FileInput/FileInput'
@@ -17,7 +19,7 @@ import { LockIconSvg } from 'src/UI/icons/LockIconSVG'
 import styles from './index.module.scss'
 
 export const RegModal: FC = () => {
-	const [regStep, setRegStep] = useState<number>(1)
+	const [regStep, setRegStep] = useState<number>(4)
 
 	const {
 		handleSubmit,
@@ -25,7 +27,7 @@ export const RegModal: FC = () => {
 		trigger,
 		formState: { errors },
 	} = useForm<FieldValues>({
-		mode: 'onBlur',
+		mode: 'onChange',
 		resolver: yupResolver(regSchema),
 	})
 
@@ -38,7 +40,7 @@ export const RegModal: FC = () => {
 		setRegStep(regStep - 1)
 	}
 	const incrementStep = async () => {
-		const result = await trigger()
+		const result = await trigger(NameMap[regStep])
 		if (result) {
 			setRegStep(regStep + 1)
 		}
@@ -121,111 +123,29 @@ export const RegModal: FC = () => {
 					<div className={styles.formStep}>
 						<div className={styles.inputGroup}>
 							<label>Серия и номер паспорта*</label>
-							{/* <Controller */}
-							{/*	name='seriesAndNumber' */}
-							{/*	control={control} */}
-							{/*	rules={{ */}
-							{/*		required: 'Введите Серию и номер паспорта', */}
-							{/*	}} */}
-							{/*	render={({ field: { onChange, onBlur, value, ref }, fieldState: { error } }) => ( */}
-							{/*		<> */}
-							{/*			<MainInput */}
-							{/*				onChange={onChange} */}
-							{/*				onBlur={onBlur} */}
-							{/*				innerRef={ref} */}
-							{/*				value={value || ''} */}
-							{/*				type='text' */}
-							{/*			/> */}
-							{/*			<ErrorWarning errorText={error?.message} /> */}
-							{/*		</> */}
-							{/*	)} */}
-							{/* /> */}
+							<ControlledField
+								control={control}
+								mask={positiveNumber}
+								name='seriesAndNumber'
+								type='text'
+								errors={errors}
+							/>
 						</div>
 						<div className={styles.inputGroup}>
 							<label>Орган, выдавший паспорт*</label>
-							{/* <Controller */}
-							{/*	name='issuedBy_RU' */}
-							{/*	control={control} */}
-							{/*	rules={{ */}
-							{/*		required: 'Введите орган', */}
-							{/*	}} */}
-							{/*	render={({ field: { onChange, onBlur, value, ref }, fieldState: { error } }) => ( */}
-							{/*		<> */}
-							{/*			<MainTextarea */}
-							{/*				onChange={onChange} */}
-							{/*				onBlur={onBlur} */}
-							{/*				inputRef={ref} */}
-							{/*				value={value || ''} */}
-							{/*			/> */}
-							{/*			<ErrorWarning errorText={error?.message} /> */}
-							{/*		</> */}
-							{/*	)} */}
-							{/* /> */}
+							<ControlledTextarea control={control} name='issuedBy_RU' errors={errors} />
 						</div>
 						<div className={styles.inputGroup}>
 							<label>Дата выдачи*</label>
-							{/* <Controller */}
-							{/*	name='dateOfIssue' */}
-							{/*	control={control} */}
-							{/*	rules={{ */}
-							{/*		required: 'Введите дату выдачи', */}
-							{/*	}} */}
-							{/*	render={({ field: { onChange, onBlur, value, ref }, fieldState: { error } }) => ( */}
-							{/*		<> */}
-							{/*			<MainInput */}
-							{/*				onChange={onChange} */}
-							{/*				onBlur={onBlur} */}
-							{/*				innerRef={ref} */}
-							{/*				value={value || ''} */}
-							{/*				type='text' */}
-							{/*			/> */}
-							{/*			<ErrorWarning errorText={error?.message} /> */}
-							{/*		</> */}
-							{/*	)} */}
-							{/* /> */}
+							<ControlledField control={control} name='dateOfIssue' type='date' errors={errors} />
 						</div>
 						<div className={styles.inputGroup}>
 							<label>Дата окончания срока действия*</label>
-							{/* <Controller */}
-							{/*	name='validity' */}
-							{/*	control={control} */}
-							{/*	rules={{ */}
-							{/*		required: 'Введите дату окончания срока действия*', */}
-							{/*	}} */}
-							{/*	render={({ field: { onChange, onBlur, value, ref }, fieldState: { error } }) => ( */}
-							{/*		<> */}
-							{/*			<MainInput */}
-							{/*				onChange={onChange} */}
-							{/*				onBlur={onBlur} */}
-							{/*				innerRef={ref} */}
-							{/*				value={value || ''} */}
-							{/*				type='text' */}
-							{/*			/> */}
-							{/*			<ErrorWarning errorText={error?.message} /> */}
-							{/*		</> */}
-							{/*	)} */}
-							{/* /> */}
+							<ControlledField control={control} name='validity' type='date' errors={errors} />
 						</div>
 						<div className={styles.inputGroup}>
 							<label>Адрес регистрации*</label>
-							{/* <Controller */}
-							{/*	name='placeOfPermanentReg_RU' */}
-							{/*	control={control} */}
-							{/*	rules={{ */}
-							{/*		required: 'Введите адрес регистрации', */}
-							{/*	}} */}
-							{/*	render={({ field: { onChange, onBlur, value, ref }, fieldState: { error } }) => ( */}
-							{/*		<> */}
-							{/*			<MainTextarea */}
-							{/*				onChange={onChange} */}
-							{/*				onBlur={onBlur} */}
-							{/*				inputRef={ref} */}
-							{/*				value={value || ''} */}
-							{/*			/> */}
-							{/*			<ErrorWarning errorText={error?.message} /> */}
-							{/*		</> */}
-							{/*	)} */}
-							{/* /> */}
+							<ControlledTextarea control={control} name='placeOfPermanentReg_RU' errors={errors} />
 						</div>
 					</div>
 				)}
@@ -234,132 +154,33 @@ export const RegModal: FC = () => {
 						<div className={styles.inputGroup}>
 							<p>Банковские реквизиты</p>
 							<label>Номер счета*</label>
-							{/* <Controller */}
-							{/*	name='bankAccounts.accountNumber' */}
-							{/*	control={control} */}
-							{/*	rules={{ */}
-							{/*		required: 'Введите номер счета', */}
-							{/*	}} */}
-							{/*	render={({ field: { onChange, onBlur, value, ref }, fieldState: { error } }) => ( */}
-							{/*		<> */}
-							{/*			<MainInput */}
-							{/*				onChange={onChange} */}
-							{/*				onBlur={onBlur} */}
-							{/*				innerRef={ref} */}
-							{/*				value={value || ''} */}
-							{/*				type='text' */}
-							{/*			/> */}
-							{/*			<ErrorWarning errorText={error?.message} /> */}
-							{/*		</> */}
-							{/*	)} */}
-							{/* /> */}
+							<ControlledField
+								control={control}
+								mask={positiveNumber}
+								name='accountNumber'
+								type='text'
+								errors={errors}
+							/>
 						</div>
 						<div className={styles.inputGroup}>
 							<label>МФО*</label>
-							{/* <Controller */}
-							{/*	name='bankAccounts.bankMFO' */}
-							{/*	control={control} */}
-							{/*	rules={{ */}
-							{/*		required: 'Введите МФО', */}
-							{/*	}} */}
-							{/*	render={({ field: { onChange, onBlur, value, ref }, fieldState: { error } }) => ( */}
-							{/*		<> */}
-							{/*			<MainTextarea */}
-							{/*				onChange={onChange} */}
-							{/*				onBlur={onBlur} */}
-							{/*				inputRef={ref} */}
-							{/*				value={value || ''} */}
-							{/*			/> */}
-							{/*			<ErrorWarning errorText={error?.message} /> */}
-							{/*		</> */}
-							{/*	)} */}
-							{/* /> */}
+							<ControlledTextarea control={control} name='bankMFO' errors={errors} />
 						</div>
 						<div className={styles.inputGroup}>
 							<label>Наименование банка*</label>
-							{/* <Controller */}
-							{/*	name='bankAccounts.bankName_RU' */}
-							{/*	control={control} */}
-							{/*	rules={{ */}
-							{/*		required: 'Введите наименование банка', */}
-							{/*	}} */}
-							{/*	render={({ field: { onChange, onBlur, value, ref }, fieldState: { error } }) => ( */}
-							{/*		<> */}
-							{/*			<MainTextarea */}
-							{/*				onChange={onChange} */}
-							{/*				onBlur={onBlur} */}
-							{/*				inputRef={ref} */}
-							{/*				value={value || ''} */}
-							{/*			/> */}
-							{/*			<ErrorWarning errorText={error?.message} /> */}
-							{/*		</> */}
-							{/*	)} */}
-							{/* /> */}
+							<ControlledTextarea control={control} name='bankName_RU' errors={errors} />
 						</div>
 						<div className={styles.inputGroup}>
 							<label>Получатель*</label>
-							{/* <Controller */}
-							{/*	name='bankAccounts.checkingAccount' */}
-							{/*	control={control} */}
-							{/*	rules={{ */}
-							{/*		required: 'Введите получателя', */}
-							{/*	}} */}
-							{/*	render={({ field: { onChange, onBlur, value, ref }, fieldState: { error } }) => ( */}
-							{/*		<> */}
-							{/*			<MainTextarea */}
-							{/*				onChange={onChange} */}
-							{/*				onBlur={onBlur} */}
-							{/*				inputRef={ref} */}
-							{/*				value={value || ''} */}
-							{/*			/> */}
-							{/*			<ErrorWarning errorText={error?.message} /> */}
-							{/*		</> */}
-							{/*	)} */}
-							{/* /> */}
+							<ControlledTextarea control={control} name='checkingAccount' errors={errors} />
 						</div>
 						<div className={styles.inputGroup}>
 							<label>Дата окончания срока действия*</label>
-							{/* <Controller */}
-							{/*	name='bankAccounts.bankDateEnded' */}
-							{/*	control={control} */}
-							{/*	rules={{ */}
-							{/*		required: 'Введите дату окончания срока действия', */}
-							{/*	}} */}
-							{/*	render={({ field: { onChange, onBlur, value, ref }, fieldState: { error } }) => ( */}
-							{/*		<> */}
-							{/*			<MainInput */}
-							{/*				onChange={onChange} */}
-							{/*				onBlur={onBlur} */}
-							{/*				innerRef={ref} */}
-							{/*				value={value || ''} */}
-							{/*				type='text' */}
-							{/*			/> */}
-							{/*			<ErrorWarning errorText={error?.message} /> */}
-							{/*		</> */}
-							{/*	)} */}
-							{/* /> */}
+							<ControlledField control={control} name='bankDateEnded' type='date' errors={errors} />
 						</div>
 						<div className={styles.inputGroup}>
 							<label>Дата добавления счета**</label>
-							{/* <Controller */}
-							{/*	name='bankAccounts.bankDateAdded' */}
-							{/*	control={control} */}
-							{/*	rules={{ */}
-							{/*		required: 'Введите дату добавления счета', */}
-							{/*	}} */}
-							{/*	render={({ field: { onChange, onBlur, value, ref }, fieldState: { error } }) => ( */}
-							{/*		<> */}
-							{/*			<MainInput */}
-							{/*				onChange={onChange} */}
-							{/*				onBlur={onBlur} */}
-							{/*				innerRef={ref} */}
-							{/*				value={value || ''} */}
-							{/*				type='text' */}
-							{/*			/> */}
-							{/*			<ErrorWarning errorText={error?.message} /> */}
-							{/*		</> */}
-							{/*	)} */}
-							{/* /> */}
+							<ControlledField control={control} name='bankDateAdded' type='date' errors={errors} />
 						</div>
 					</div>
 				)}
@@ -368,52 +189,17 @@ export const RegModal: FC = () => {
 						<div className={styles.inputGroup}>
 							<label>Приложите сканы документа*</label>
 
-							<FileInput control={control} name='documents.scanFiles' />
+							<FileInput control={control} name='scanFiles' filesCount={6} />
 						</div>
 
 						<span className={mainStyles.or}>или</span>
 						<div className={styles.inputGroup}>
 							<label>Добавьте ссылку на изображение*</label>
-							{/* <Controller */}
-							{/*	name='documents.scans' */}
-							{/*	control={control} */}
-							{/*	rules={{ */}
-							{/*		required: 'Добавьте ссылку или сканы', */}
-							{/*	}} */}
-							{/*	render={({ field: { onChange, onBlur, value, ref }, fieldState: { error } }) => ( */}
-							{/*		<> */}
-							{/*			<MainInput */}
-							{/*				onChange={onChange} */}
-							{/*				onBlur={onBlur} */}
-							{/*				innerRef={ref} */}
-							{/*				value={value || ''} */}
-							{/*				type='text' */}
-							{/*			/> */}
-							{/*			<ErrorWarning errorText={error?.message} /> */}
-							{/*		</> */}
-							{/*	)} */}
-							{/* /> */}
+							<ControlledField control={control} name='scans' type='text' errors={errors} />
 						</div>
 						<div className={styles.inputGroup}>
 							<label>Дополнительные сведения о себе*</label>
-							{/* <Controller */}
-							{/*	name='documents.description' */}
-							{/*	control={control} */}
-							{/*	rules={{ */}
-							{/*		required: 'Дополнительные сведения о себе*', */}
-							{/*	}} */}
-							{/*	render={({ field: { onChange, onBlur, value, ref }, fieldState: { error } }) => ( */}
-							{/*		<> */}
-							{/*			<MainTextarea */}
-							{/*				onChange={onChange} */}
-							{/*				onBlur={onBlur} */}
-							{/*				inputRef={ref} */}
-							{/*				value={value || ''} */}
-							{/*			/> */}
-							{/*			<ErrorWarning errorText={error?.message} /> */}
-							{/*		</> */}
-							{/*	)} */}
-							{/* /> */}
+							<ControlledTextarea control={control} name='docDescription' errors={errors} />
 						</div>
 					</div>
 				)}
