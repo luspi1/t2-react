@@ -1,41 +1,76 @@
 import cn from 'classnames'
-import { type FC } from 'react'
+import React, { type FC, type HTMLAttributes, useCallback, useEffect, useState } from 'react'
 import Dropzone from 'react-dropzone'
 import { type Control, Controller } from 'react-hook-form'
-import fileIcon from 'src/assets/img/doc-file.png'
+import { FilePreview } from 'src/UI/FilePreview/FilePreview'
 import styles from './index.module.scss'
 
 type FileInputProps = {
 	name: string
-	control: Control
 	className?: string
-	filesCount: number
+	control: Control
 }
 
-export const FileInput: FC<FileInputProps> = ({ control, name, filesCount, className }) => {
+type ControlledFileProps = FileInputProps & HTMLAttributes<HTMLInputElement>
+
+type FileWithPreview = File & { preview: string }
+export const FileInput: FC<ControlledFileProps> = (props) => {
+	const [dzFiles, setDzFiles] = useState<FileWithPreview[]>([])
+
+	const onDrop = useCallback((acceptedFiles: File[]) => {
+		if (acceptedFiles?.length) {
+			setDzFiles((prevFiles) => [
+				...prevFiles,
+				...acceptedFiles.map((file) => Object.assign(file, { preview: URL.createObjectURL(file) })),
+			])
+		}
+	}, [])
+
+	const deletePreviewImg = (imgArr: FileWithPreview[], imgName: string) => {
+		const newFiles = imgArr.filter((el) => el.name !== imgName)
+		setDzFiles(newFiles)
+	}
+
+	useEffect(
+		() => () => {
+			dzFiles.forEach((file) => URL.revokeObjectURL(file.preview))
+		},
+		[dzFiles]
+	)
+
 	return (
 		<Controller
-			control={control}
-			name={name}
+			control={props.control}
+			name={props.name}
 			defaultValue={[]}
 			render={({ field: { onChange, onBlur, value } }) => (
-				<div className={cn(styles.mainDropzone, className)}>
+				<div className={cn(styles.mainDropzone)}>
 					<h4>Перетяните изображение в это поле или</h4>
-					<Dropzone onDrop={onChange} maxFiles={filesCount}>
+					<Dropzone onDropAccepted={onDrop} onDrop={onChange}>
 						{({ getRootProps, getInputProps }) => (
 							<div className={styles.innerDropzone} {...getRootProps()}>
 								<button className={styles.dropzoneBtn} type='button'>
 									Загрузите файл
 								</button>
-								<input {...getInputProps()} type='text' name={name} onBlur={onBlur} value={value} />
+								<input
+									{...getInputProps()}
+									type='text'
+									name={props.name}
+									onBlur={onBlur}
+									value={value}
+								/>
 							</div>
 						)}
 					</Dropzone>
+
 					<ul className={styles.filesList}>
-						{value.map((f: File, i: number) => (
-							<li key={i}>
-								<img src={fileIcon} alt='file' />
-							</li>
+						{dzFiles.map((f: FileWithPreview, i: number) => (
+							<FilePreview
+								key={i}
+								imgSrc={f.preview}
+								imgName={f.name}
+								onDeleteImg={() => deletePreviewImg(dzFiles, f.name)}
+							/>
 						))}
 					</ul>
 				</div>

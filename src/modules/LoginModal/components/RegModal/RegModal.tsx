@@ -189,7 +189,7 @@ export const RegModal: FC = () => {
 						<div className={styles.inputGroup}>
 							<label>Приложите сканы документа*</label>
 
-							<FileInput control={control} name='scanFiles' filesCount={6} />
+							<FileInput control={control} name='scanFiles' />
 						</div>
 
 						<span className={mainStyles.or}>или</span>
