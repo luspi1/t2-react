@@ -13,7 +13,10 @@ type FileInputProps = {
 
 type ControlledFileProps = FileInputProps & HTMLAttributes<HTMLInputElement>
 
-type FileWithPreview = File & { preview: string }
+interface FileWithPreview extends File {
+	preview: string
+}
+
 export const FileInput: FC<ControlledFileProps> = (props) => {
 	const [dzFiles, setDzFiles] = useState<FileWithPreview[]>([])
 
@@ -46,7 +49,7 @@ export const FileInput: FC<ControlledFileProps> = (props) => {
 			render={({ field: { onChange, onBlur, value } }) => (
 				<div className={cn(styles.mainDropzone)}>
 					<h4>Перетяните изображение в это поле или</h4>
-					<Dropzone onDropAccepted={onDrop} onDrop={onChange}>
+					<Dropzone onDrop={onDrop}>
 						{({ getRootProps, getInputProps }) => (
 							<div className={styles.innerDropzone} {...getRootProps()}>
 								<button className={styles.dropzoneBtn} type='button'>

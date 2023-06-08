@@ -1,25 +1,50 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import cn from 'classnames'
-import React, { type FC, useState } from 'react'
+import React, { type FC, useCallback, useEffect, useState } from 'react'
+import { useDropzone } from 'react-dropzone'
 import { type FieldValues, type SubmitHandler, useForm } from 'react-hook-form'
 import { positiveNumber } from 'src/helpers/masks'
 import { RegController } from 'src/modules/LoginModal/components/RegModal/components/RegController'
 import { NameMap } from 'src/modules/LoginModal/components/RegModal/consts'
 import { regSchema } from 'src/modules/LoginModal/components/RegModal/schema'
-import mainStyles from 'src/modules/LoginModal/index.module.scss'
+import { type FileWithPreview } from 'src/types/files'
 import { Button } from 'src/UI/Button'
 import { ControlledField } from 'src/UI/ControlledField/СontrolledField'
 import { ControlledTextarea } from 'src/UI/ControlledTextarea/ControlledTextarea'
 
 import { ErrorWarning } from 'src/UI/ErrorWarning'
-import { FileInput } from 'src/UI/FileInput/FileInput'
+import { FilePreview } from 'src/UI/FilePreview/FilePreview'
 
 import { LockIconSvg } from 'src/UI/icons/LockIconSVG'
+import mainStyles from '../../index.module.scss'
 
 import styles from './index.module.scss'
 
 export const RegModal: FC = () => {
 	const [regStep, setRegStep] = useState<number>(4)
+	const [dzFiles, setDzFiles] = useState<FileWithPreview[]>([])
+
+	const onDrop = useCallback((acceptedFiles: File[]) => {
+		if (acceptedFiles?.length) {
+			setDzFiles((prevFiles) => [
+				...prevFiles,
+				...acceptedFiles.map((file) => Object.assign(file, { preview: URL.createObjectURL(file) })),
+			])
+		}
+	}, [])
+	const { getRootProps, getInputProps } = useDropzone({ onDrop })
+
+	const deletePreviewImg = (imgArr: FileWithPreview[], imgName: string) => {
+		const newFiles = imgArr.filter((el) => el.name !== imgName)
+		setDzFiles(newFiles)
+	}
+
+	useEffect(
+		() => () => {
+			dzFiles.forEach((file) => URL.revokeObjectURL(file.preview))
+		},
+		[dzFiles]
+	)
 
 	const {
 		handleSubmit,
@@ -33,7 +58,12 @@ export const RegModal: FC = () => {
 
 	const onSubmit: SubmitHandler<FieldValues> = (data) => {
 		setRegStep(6)
-		console.log(data)
+		const allData = {
+			...data,
+			dzFiles,
+		}
+
+		console.log(allData)
 	}
 
 	const decrementStep = () => {
@@ -189,7 +219,26 @@ export const RegModal: FC = () => {
 						<div className={styles.inputGroup}>
 							<label>Приложите сканы документа*</label>
 
-							<FileInput control={control} name='scanFiles' />
+							<div className={cn(styles.mainDropzone)}>
+								<h4>Перетяните изображение в это поле или</h4>
+								<div className={styles.innerDropzone} {...getRootProps()}>
+									<button className={styles.dropzoneBtn} type='button'>
+										Загрузите файл
+									</button>
+									<input {...getInputProps()} />
+								</div>
+
+								<ul className={styles.filesList}>
+									{dzFiles.map((f: FileWithPreview, i: number) => (
+										<FilePreview
+											key={f.name}
+											imgSrc={f.preview}
+											imgName={f.name}
+											onDeleteImg={() => deletePreviewImg(dzFiles, f.name)}
+										/>
+									))}
+								</ul>
+							</div>
 						</div>
 
 						<span className={mainStyles.or}>или</span>
