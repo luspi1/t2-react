@@ -3,7 +3,7 @@ import cn from 'classnames'
 import React, { type FC, useCallback, useEffect, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { type FieldValues, type SubmitHandler, useForm } from 'react-hook-form'
-import { positiveNumber } from 'src/helpers/masks'
+import { phoneMask, positiveNumber } from 'src/helpers/masks'
 import { RegController } from 'src/modules/LoginModal/components/RegModal/components/RegController'
 import { NameMap } from 'src/modules/LoginModal/components/RegModal/consts'
 import { regSchema } from 'src/modules/LoginModal/components/RegModal/schema'
@@ -16,12 +16,14 @@ import { ErrorWarning } from 'src/UI/ErrorWarning'
 import { FilePreview } from 'src/UI/FilePreview/FilePreview'
 
 import { LockIconSvg } from 'src/UI/icons/LockIconSVG'
+import { MailIconSvg } from 'src/UI/icons/MailIconSVG'
+import { PhoneIconSvg } from 'src/UI/icons/PhoneIconSVG'
 import mainStyles from '../../index.module.scss'
 
 import styles from './index.module.scss'
 
 export const RegModal: FC = () => {
-	const [regStep, setRegStep] = useState<number>(4)
+	const [regStep, setRegStep] = useState<number>(5)
 	const [dzFiles, setDzFiles] = useState<FileWithPreview[]>([])
 
 	const onDrop = useCallback((acceptedFiles: File[]) => {
@@ -60,7 +62,7 @@ export const RegModal: FC = () => {
 		setRegStep(6)
 		const allData = {
 			...data,
-			dzFiles,
+			scanFiles: dzFiles,
 		}
 
 		console.log(allData)
@@ -229,7 +231,7 @@ export const RegModal: FC = () => {
 								</div>
 
 								<ul className={styles.filesList}>
-									{dzFiles.map((f: FileWithPreview, i: number) => (
+									{dzFiles.map((f: FileWithPreview) => (
 										<FilePreview
 											key={f.name}
 											imgSrc={f.preview}
@@ -265,91 +267,46 @@ export const RegModal: FC = () => {
 					<div className={styles.formStep}>
 						<div className={cn(styles.inputGroup, styles.borderBottom)}>
 							<label>Введите номер мобильного телефона*</label>
-							{/* <Controller */}
-							{/*	name='mobileNumber' */}
-							{/*	control={control} */}
-							{/*	rules={{ */}
-							{/*		required: 'Введите номер', */}
-							{/*	}} */}
-							{/*	render={({ field: { onChange, onBlur, value, ref }, fieldState: { error } }) => ( */}
-							{/*		<> */}
-							{/*			<MainInput */}
-							{/*				onChange={onChange} */}
-							{/*				onBlur={onBlur} */}
-							{/*				innerRef={ref} */}
-							{/*				value={value || ''} */}
-							{/*				type='text' */}
-							{/*			/> */}
-							{/*			<ErrorWarning errorText={error?.message} /> */}
-							{/*		</> */}
-							{/*	)} */}
-							{/* /> */}
+
+							<ControlledField
+								control={control}
+								mask={phoneMask}
+								name='mobileNumber'
+								svg={<PhoneIconSvg />}
+								type='text'
+								errors={errors}
+							/>
 						</div>
 						<div className={styles.inputGroup}>
 							<label>Введите адрес электронной почты*</label>
-							{/* <Controller */}
-							{/*	name='email' */}
-							{/*	control={control} */}
-							{/*	rules={{ */}
-							{/*		required: 'Введите e-mail', */}
-							{/*	}} */}
-							{/*	render={({ field: { onChange, onBlur, value, ref }, fieldState: { error } }) => ( */}
-							{/*		<> */}
-							{/*			<MainInput */}
-							{/*				onChange={onChange} */}
-							{/*				onBlur={onBlur} */}
-							{/*				innerRef={ref} */}
-							{/*				value={value || ''} */}
-							{/*				type='email' */}
-							{/*			/> */}
-							{/*			<ErrorWarning errorText={error?.message} /> */}
-							{/*		</> */}
-							{/*	)} */}
-							{/* /> */}
+							<ControlledField
+								placeholder='konstantin@konstantin.com'
+								control={control}
+								name='email'
+								type='text'
+								svg={<MailIconSvg />}
+								errors={errors}
+							/>
 						</div>
 						<div className={styles.inputGroup}>
 							<label>Создайте пароль для входа в систему*</label>
-							{/* <Controller */}
-							{/*	name='password' */}
-							{/*	control={control} */}
-							{/*	rules={{ */}
-							{/*		required: 'Введите пароль', */}
-							{/*	}} */}
-							{/*	render={({ field: { onChange, onBlur, value, ref }, fieldState: { error } }) => ( */}
-							{/*		<> */}
-							{/*			<MainInput */}
-							{/*				onChange={onChange} */}
-							{/*				onBlur={onBlur} */}
-							{/*				innerRef={ref} */}
-							{/*				value={value || ''} */}
-							{/*				type='password' */}
-							{/*			/> */}
-							{/*			<ErrorWarning errorText={error?.message} /> */}
-							{/*		</> */}
-							{/*	)} */}
-							{/* /> */}
+							<ControlledField
+								control={control}
+								name='password'
+								type='password'
+								svg={<LockIconSvg />}
+								errors={errors}
+							/>
 						</div>
 						<div className={styles.inputGroup}>
 							<label>Введите пароль повторно*</label>
-							{/* <Controller */}
-							{/*	name='passwordRepeat' */}
-							{/*	control={control} */}
-							{/*	rules={{ */}
-							{/*		required: 'Введите пароль повторно', */}
-							{/*	}} */}
-							{/*	render={({ field: { onChange, onBlur, value, ref }, fieldState: { error } }) => ( */}
-							{/*		<> */}
-							{/*			<MainInput */}
-							{/*				onChange={onChange} */}
-							{/*				onBlur={onBlur} */}
-							{/*				innerRef={ref} */}
-							{/*				value={value || ''} */}
-							{/*				type='password' */}
-							{/*			/> */}
-							{/*			<ErrorWarning errorText={error?.message} /> */}
-							{/*		</> */}
-							{/*	)} */}
-							{/* /> */}
+							<ControlledField
+								control={control}
+								name='passwordRepeat'
+								type='password'
+								svg={<LockIconSvg />}
+								errors={errors}
+							/>
 						</div>
 						<Button type='submit' background='#66ACCC' margin='60px 0 0 0' width='80%'>
 							подать заявку

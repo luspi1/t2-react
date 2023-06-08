@@ -12,4 +12,5 @@ export const NameMap: RegNameMap = {
 		'bankDateAdded',
 	],
 	4: ['scans', 'docDescription'],
+	5: ['mobileNumber', 'email', 'password', 'passwordRepeat'],
 }
