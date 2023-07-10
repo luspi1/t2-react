@@ -1,26 +1,25 @@
+import cn from 'classnames'
 import React, { type FC } from 'react'
 import { Controller, type SubmitHandler, useForm } from 'react-hook-form'
+
+import { LangSwitch } from 'src/components/LangSwitch/LangSwitch'
+import { useActions } from 'src/hooks/actions/actions'
+
+import styles from 'src/modules/LoginModal/components/AuthModal/index.module.scss'
 import { type AuthForm } from 'src/modules/LoginModal/components/AuthModal/types'
+import mainStyles from 'src/modules/LoginModal/index.module.scss'
+
+import { ModalStates } from 'src/pages/LoginPage/consts'
 
 import { Button } from 'src/UI/Button'
 import { ErrorWarning } from 'src/UI/ErrorWarning'
-
-import { LangSwitch } from 'src/components/LangSwitch/LangSwitch'
+import { LockIconSvg } from 'src/UI/icons/LockIconSVG'
+import { MailIconSvg } from 'src/UI/icons/MailIconSVG'
+import { PhoneIconSvg } from 'src/UI/icons/PhoneIconSVG'
 import { MainInput } from 'src/UI/MainInput/MainInput'
 
-import styles from 'src/modules/LoginModal/components/AuthModal/index.module.scss'
-import mainStyles from 'src/modules/LoginModal/index.module.scss'
-import cn from 'classnames'
-
-import { useAppDispatch } from 'src/hooks/store'
-import { setModalState } from 'src/modules/LoginModal/store/login-slice/login.slice'
-import { ModalStates } from 'src/pages/LoginPage/consts'
-import { PhoneIconSvg } from 'src/UI/icons/PhoneIconSVG'
-import { MailIconSvg } from 'src/UI/icons/MailIconSVG'
-import { LockIconSvg } from 'src/UI/icons/LockIconSVG'
-
 export const AuthModal: FC = () => {
-	const dispatch = useAppDispatch()
+	const { setModalState } = useActions()
 
 	const { handleSubmit, control, watch } = useForm<AuthForm>({ mode: 'onBlur' })
 
@@ -118,18 +117,14 @@ export const AuthModal: FC = () => {
 				background='#66ACCC'
 				width='241px'
 				margin='0 auto 30px'
-				onClick={() => dispatch(setModalState(ModalStates.Esia))}
+				onClick={() => setModalState(ModalStates.Esia)}
 			>
 				войти через ЕСИА
 			</Button>
 			<p className={cn(mainStyles.textCenter, mainStyles.borderTop)}>
 				Если у Вас нет учетной записи, пройдите, пожалуйста, регистрацию.
 			</p>
-			<Button
-				background='#66ACCC'
-				margin='0 auto'
-				onClick={() => dispatch(setModalState(ModalStates.Reg))}
-			>
+			<Button background='#66ACCC' margin='0 auto' onClick={() => setModalState(ModalStates.Reg)}>
 				зарегистрироваться
 			</Button>
 		</div>

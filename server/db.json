@@ -1,0 +1,116 @@
+{
+  "objects": [
+    {
+      "id": 1,
+      "objectCode": "912045-764-Ж",
+      "objectSize": 420,
+      "objectPriceInRubles": 600000,
+      "auctionObjectStatus": {
+        "statusProperty": "await",
+        "statusContent": "Ожидает"
+      },
+      "objectInnerDescription": "2-этажный жилой дом на озере",
+      "objectAddressRU": "Саратов, ул. Безупречного понимания, д. 122",
+      "objectAuctionNumber": "A-644-407",
+      "isObjAuc": "onAuc"
+    },
+    {
+      "id": 2,
+      "objectCode": "8876-764-Д",
+      "objectSize": 125,
+      "objectPriceInRubles": 800000123,
+      "auctionObjectStatus": {
+        "statusProperty": "inWork",
+        "statusContent": "Объект в работе"
+      },
+      "objectInnerDescription": "Склад-рефрижератор на Центральном рынке",
+      "objectAddressRU": "Тамбов, ул. Бульвар Энтузиастов, д. 25",
+      "objectAuctionNumber": "Г-435-124",
+      "isObjAuc": "onAuc"
+    },
+    {
+      "id": 3,
+      "objectCode": "5563-764-Д",
+      "objectSize": 125,
+      "objectPriceInRubles": 800000123,
+      "auctionObjectStatus": {
+        "statusProperty": "inWork",
+        "statusContent": "Объект в работе"
+      },
+      "objectInnerDescription": "3-комнатная квартира в ЖК Азамат",
+      "objectAddressRU": "Тамбов, ул. Бульвар Энтузиастов, д. 25",
+      "objectAuctionNumber": null,
+      "isObjAuc": "withoutAuc"
+    },
+    {
+      "id": 4,
+      "objectCode": "5563-764-Д",
+      "objectSize": 125,
+      "objectPriceInRubles": 800000123,
+      "auctionObjectStatus": {
+        "statusProperty": "inWork",
+        "statusContent": "Объект в работе"
+      },
+      "objectInnerDescription": "Склад-рефрижератор на Центральном рынке",
+      "objectAddressRU": "Воронеж, ул. Рылеева, д. 13",
+      "objectAuctionNumber": null,
+      "isObjAuc": "withoutAuc"
+    },
+    {
+      "id": 5,
+      "objectCode": "5563-764-Д",
+      "objectSize": 125,
+      "objectPriceInRubles": 800000123,
+      "auctionObjectStatus": {
+        "statusProperty": "inWork",
+        "statusContent": "Объект в работе"
+      },
+      "objectInnerDescription": "3-комнатная квартира в ЖК Азамат",
+      "objectAddressRU": "Тамбов, ул. Бульвар Энтузиастов, д. 25",
+      "objectAuctionNumber": "Г-435-124",
+      "isObjAuc": "onAuc"
+    },
+    {
+      "id": 6,
+      "objectCode": "912045-764-Ж",
+      "objectSize": 420,
+      "objectPriceInRubles": 600000,
+      "auctionObjectStatus": {
+        "statusProperty": "await",
+        "statusContent": "Ожидает"
+      },
+      "objectInnerDescription": "2-этажный жилой дом на озере",
+      "objectAddressRU": "Саратов, ул. Безупречного понимания, д. 122",
+      "objectAuctionNumber": null,
+      "isObjAuc": "withoutAuc"
+    },
+    {
+      "id": 7,
+      "objectCode": "91daw5-764-К",
+      "objectSize": 45,
+      "objectPriceInRubles": 534000,
+      "auctionObjectStatus": {
+        "statusProperty": "sold",
+        "statusContent": "Продан"
+      },
+      "objectInnerDescription": "2-этажный жилой дом на озере",
+      "objectAddressRU": "Саратов, ул. Безупречного понимания, д. 122",
+      "objectAuctionNumber": null,
+      "isObjAuc": "withoutAuc"
+    },
+    {
+      "id": 8,
+      "objectCode": "91daw5-764-К",
+      "objectSize": 312,
+      "objectPriceInRubles": 111011,
+      "auctionObjectStatus": {
+        "statusProperty": "draft",
+        "statusContent": "Черновик"
+      },
+      "objectInnerDescription": "2-этажный жилой дом на озере",
+      "objectAddressRU": "Саратов, ул. Безупречного понимания, д. 122",
+      "objectAuctionNumber": "Г-435-124",
+      "isObjAuc": "onAuc"
+    }
+  ]
+}

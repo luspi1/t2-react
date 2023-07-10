@@ -1,13 +1,13 @@
 import { type FC } from 'react'
-import { Button } from 'src/UI/Button'
 import { LangSwitch } from 'src/components/LangSwitch/LangSwitch'
-import styles from '../../index.module.scss'
-import { useAppDispatch } from 'src/hooks/store'
-import { setModalState } from 'src/modules/LoginModal/store/login-slice/login.slice'
+import { useActions } from 'src/hooks/actions/actions'
 import { ModalStates } from 'src/pages/LoginPage/consts'
+import { Button } from 'src/UI/Button'
+import styles from '../../index.module.scss'
 
 export const MainAuthModal: FC = () => {
-	const dispatch = useAppDispatch()
+	const { setModalState } = useActions()
+
 	return (
 		<div>
 			<LangSwitch className={styles.loginLangSwitch} />
@@ -18,7 +18,7 @@ export const MainAuthModal: FC = () => {
 				background='#66ACCC'
 				width='100%'
 				margin='0 0 30px 0'
-				onClick={() => dispatch(setModalState(ModalStates.Esia))}
+				onClick={() => setModalState(ModalStates.Esia)}
 			>
 				авторизация через есиа
 			</Button>
@@ -39,7 +39,7 @@ export const MainAuthModal: FC = () => {
 				background='#66ACCC'
 				width='100%'
 				margin='0 0 30px 0'
-				onClick={() => dispatch(setModalState(ModalStates.Reg))}
+				onClick={() => setModalState(ModalStates.Reg)}
 			>
 				регистрация вручную
 			</Button>
@@ -54,7 +54,7 @@ export const MainAuthModal: FC = () => {
 					color='#337390'
 					width='100%'
 					margin='0 0 30px 0'
-					onClick={() => dispatch(setModalState(ModalStates.Login))}
+					onClick={() => setModalState(ModalStates.Login)}
 				>
 					войти на сайт
 				</Button>

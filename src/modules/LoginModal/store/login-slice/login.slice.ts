@@ -19,5 +19,5 @@ export const loginSlice = createSlice({
 		},
 	},
 })
-export const { setModalState } = loginSlice.actions
-export default loginSlice.reducer
+export const loginActions = loginSlice.actions
+export const loginReducer = loginSlice.reducer

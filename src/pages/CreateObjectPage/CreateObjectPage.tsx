@@ -2,7 +2,7 @@ import { type FC } from 'react'
 import { Container } from 'src/UI/Container'
 import { Helmet } from 'react-helmet-async'
 import { MainTitle } from 'src/UI/MainTitle'
-import { CreateObjForm } from 'src/pages/CreateObjectPage/components/CreateObjForm/CreateObjForm'
+// import { CreateObjForm } from 'src/pages/CreateObjectPage/components/CreateObjForm/CreateObjForm'
 
 export const CreateObjectPage: FC = () => {
 	return (
@@ -11,7 +11,7 @@ export const CreateObjectPage: FC = () => {
 				<title>Создание объекта</title>
 			</Helmet>
 			<MainTitle padding='38px 0 32px 20px'>Создание объекта</MainTitle>
-			<CreateObjForm />
+			{/* <CreateObjForm /> */}
 		</Container>
 	)
 }

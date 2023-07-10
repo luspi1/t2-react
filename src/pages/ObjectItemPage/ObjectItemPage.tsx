@@ -1,21 +1,20 @@
 import { type FC } from 'react'
-import { MainTitle } from 'src/UI/MainTitle'
-import { Container } from 'src/UI/Container'
 import { Helmet } from 'react-helmet-async'
-import { useAppSelector } from 'src/hooks/store'
-import { getObjectById } from '../ObjectsPage/store/ObjectsSlice/objects.selectors'
-import { Link, useParams } from 'react-router-dom'
-import { AppRoute } from 'src/helpers/consts'
+// import { useAppSelector } from 'src/hooks/store'
+// import { getObjectById } from '../ObjectsPage/store/ObjectsSlice/objects.selectors'
+// import { AppRoute } from 'src/helpers/consts'
 import { Button } from 'src/UI/Button'
+import { Container } from 'src/UI/Container'
+import { MainTitle } from 'src/UI/MainTitle'
 
 export const ObjectItemPage: FC = () => {
-	const { objId } = useParams()
+	// const { objId } = useParams()
 
-	const currentObject = useAppSelector(getObjectById(Number(objId)))
+	// const currentObject = useAppSelector(getObjectById(Number(objId)))
 
-	if (currentObject === null || currentObject === undefined) {
-		return <h1>Объект не найден</h1>
-	}
+	// if (currentObject === null || currentObject === undefined) {
+	// 	return <h1>Объект не найден</h1>
+	// }
 
 	return (
 		<Container className='object-card'>
@@ -73,22 +72,22 @@ export const ObjectItemPage: FC = () => {
 									fill='#51828E'
 								/>
 							</svg>
-							{currentObject.objectCode}
+							{/* {currentObject.objectCode} */}
 						</p>
 					</div>
 					<div className='object-card__info-main'>
 						<div className='object-card__info-main-left'>
-							<h2 className='subtitle'>{currentObject.objectInnerDescription}</h2>
+							{/* <h2 className='subtitle'>{currentObject.objectInnerDescription}</h2> */}
 							<ul className='object-card__info-list'>
 								<li>
 									<p className='object-card__info-list-title'>Начальная стоимость:</p>
 									<p className='object-card__info-list-content'>
-										{currentObject.objectPriceInRubles} рублей
+										{/* {currentObject.objectPriceInRubles} рублей */}
 									</p>
 								</li>
 								<li>
 									<p className='object-card__info-list-title'>Адрес Объекта:</p>
-									<p className='object-card__info-list-content'>{currentObject.objectAddressRU}</p>
+									{/* <p className='object-card__info-list-content'>{currentObject.objectAddressRU}</p> */}
 								</li>
 								<li>
 									<p className='object-card__info-list-title'>Застройщик Объекта:</p>
@@ -190,34 +189,34 @@ export const ObjectItemPage: FC = () => {
 								</svg>
 								Объект выставлен на торги
 							</p>
-							{currentObject.objectAuctionNumber ? (
-								<>
-									<div className='object-card__aside-auction'>
-										<h3>Аукцион {currentObject.objectAuctionNumber}</h3>
-										<ul>
-											<li>
-												<p>Аукцион открытого типа</p>
-											</li>
-											<li>
-												<p>
-													Аукцион начнется
-													<span>
-														27.03.2023 | 10:30 <span>TASH</span>{' '}
-													</span>
-												</p>
-											</li>
-											<li>
-												<p>Для физических лиц</p>
-											</li>
-										</ul>
-									</div>
-									<Link to={AppRoute.Auc} className='object-card__aside-link'>
-										Страница Аукциона <span>{currentObject.objectAuctionNumber}</span>
-									</Link>
-								</>
-							) : (
-								<h3>Аукцион не выставлен</h3>
-							)}
+							{/* {currentObject.objectAuctionNumber ? ( */}
+							{/*	<> */}
+							{/*		<div className='object-card__aside-auction'> */}
+							{/*			<h3>Аукцион {currentObject.objectAuctionNumber}</h3> */}
+							{/*			<ul> */}
+							{/*				<li> */}
+							{/*					<p>Аукцион открытого типа</p> */}
+							{/*				</li> */}
+							{/*				<li> */}
+							{/*					<p> */}
+							{/*						Аукцион начнется */}
+							{/*						<span> */}
+							{/*							27.03.2023 | 10:30 <span>TASH</span>{' '} */}
+							{/*						</span> */}
+							{/*					</p> */}
+							{/*				</li> */}
+							{/*				<li> */}
+							{/*					<p>Для физических лиц</p> */}
+							{/*				</li> */}
+							{/*			</ul> */}
+							{/*		</div> */}
+							{/*		<Link to={AppRoute.Auc} className='object-card__aside-link'> */}
+							{/*			Страница Аукциона <span>{currentObject.objectAuctionNumber}</span> */}
+							{/*		</Link> */}
+							{/*	</> */}
+							{/* ) : ( */}
+							{/*	<h3>Аукцион не выставлен</h3> */}
+							{/* )} */}
 						</aside>
 					</div>
 				</section>

@@ -3,6 +3,7 @@ import cn from 'classnames'
 import React, { type FC, useCallback, useEffect, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { type FieldValues, type SubmitHandler, useForm } from 'react-hook-form'
+import { uid } from 'react-uid'
 import { phoneMask, positiveNumber } from 'src/helpers/masks'
 import { RegController } from 'src/modules/LoginModal/components/RegModal/components/RegController'
 import { NameMap } from 'src/modules/LoginModal/components/RegModal/consts'
@@ -23,7 +24,7 @@ import mainStyles from '../../index.module.scss'
 import styles from './index.module.scss'
 
 export const RegModal: FC = () => {
-	const [regStep, setRegStep] = useState<number>(5)
+	const [regStep, setRegStep] = useState<number>(4)
 	const [dzFiles, setDzFiles] = useState<FileWithPreview[]>([])
 
 	const onDrop = useCallback((acceptedFiles: File[]) => {
@@ -231,9 +232,9 @@ export const RegModal: FC = () => {
 								</div>
 
 								<ul className={styles.filesList}>
-									{dzFiles.map((f: FileWithPreview) => (
+									{dzFiles?.map((f: FileWithPreview) => (
 										<FilePreview
-											key={f.name}
+											key={uid(f)}
 											imgSrc={f.preview}
 											imgName={f.name}
 											onDeleteImg={() => deletePreviewImg(dzFiles, f.name)}
