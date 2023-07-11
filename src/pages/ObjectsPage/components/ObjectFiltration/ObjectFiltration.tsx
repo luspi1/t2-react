@@ -1,28 +1,33 @@
-import { type FC } from 'react'
-// import { ObjectsOnAucOptions, ObjectsStatusOptions } from '../../consts'
-// import { type SelOption } from 'src/types/select'
-// import { useAppDispatch } from 'src/hooks/store'
-// import {
-// 	setAucStatus,
-// 	setObjectStatus,
-// 	setSearchObject,
-// } from 'src/pages/ObjectsPage/store/ObjectsSlice/objects.slice'
+import React, { type FC } from 'react'
+
 import { Link } from 'react-router-dom'
 import Select from 'react-select'
 import { AppRoute } from 'src/helpers/consts'
 import { ObjectsOnAucOptions, ObjectsStatusOptions } from 'src/pages/ObjectsPage/consts'
-import { useGetObjectsQuery } from 'src/store/objects/objects.api'
+import { type ObjFiltrationParams } from 'src/types/objects'
+import { type SelOption } from 'src/types/select'
 
-export const ObjectFiltration: FC = () => {
-	// const dispatch = useAppDispatch()
-	// const handleFilterSelect = (option: SelOption | null) => {
-	// 	dispatch(setObjectStatus(option?.value))
-	// }
-	// const handleAucSelect = (option: SelOption | null) => {
-	// 	dispatch(setAucStatus(option?.value))
-	// }
+type ObjectFiltrationProps = {
+	setFiltrationParams: React.Dispatch<React.SetStateAction<ObjFiltrationParams>>
+	filtrationParams: ObjFiltrationParams
+}
 
-	const {} = useGetObjectsQuery('склад')
+export const ObjectFiltration: FC<ObjectFiltrationProps> = ({
+	setFiltrationParams,
+	filtrationParams,
+}) => {
+	const handleFilterSelect = (option: SelOption | null) => {
+		setFiltrationParams({
+			...filtrationParams,
+			status: option?.value ?? '',
+		})
+	}
+	const handleAucSelect = (option: SelOption | null) => {
+		setFiltrationParams({
+			...filtrationParams,
+			auc: option?.value ?? '',
+		})
+	}
 
 	return (
 		<div className='objects__select-row'>
@@ -31,7 +36,12 @@ export const ObjectFiltration: FC = () => {
 					className='objects__search objects-all__search'
 					type='text'
 					placeholder='Найти объект по коду, названию, адресу или стоимости'
-					// onChange={(e) => dispatch(setSearchObject(e.target.value))}
+					onChange={(e) =>
+						setFiltrationParams({
+							...filtrationParams,
+							search: e.target.value,
+						})
+					}
 				/>
 				<svg
 					width='13'
@@ -52,7 +62,7 @@ export const ObjectFiltration: FC = () => {
 					classNamePrefix='custom-select'
 					options={ObjectsStatusOptions}
 					placeholder='Все статусы'
-					// onChange={handleFilterSelect}
+					onChange={handleFilterSelect}
 				/>
 			</div>
 			<div className='objects__auction'>
@@ -60,7 +70,7 @@ export const ObjectFiltration: FC = () => {
 					classNamePrefix='custom-select'
 					options={ObjectsOnAucOptions}
 					placeholder='Все объекты'
-					// onChange={handleAucSelect}
+					onChange={handleAucSelect}
 				/>
 			</div>
 			<Link to={AppRoute.ObjCreate} className='objects__btn-add'>

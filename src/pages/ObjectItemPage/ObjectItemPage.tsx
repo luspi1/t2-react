@@ -1,20 +1,26 @@
 import { type FC } from 'react'
 import { Helmet } from 'react-helmet-async'
+import { Link, useParams } from 'react-router-dom'
+import { AppRoute } from 'src/helpers/consts'
+import { useGetObjectByIdQuery } from 'src/store/objects/objects.api'
 // import { useAppSelector } from 'src/hooks/store'
 // import { getObjectById } from '../ObjectsPage/store/ObjectsSlice/objects.selectors'
 // import { AppRoute } from 'src/helpers/consts'
 import { Button } from 'src/UI/Button'
 import { Container } from 'src/UI/Container'
+import { CheckIconSvg } from 'src/UI/icons/CheckIconSVG'
+import { DocumentsIconSvg } from 'src/UI/icons/DocumentsIconSVG'
+import { ObjCodeSvg } from 'src/UI/icons/ObjCodeSVG'
 import { MainTitle } from 'src/UI/MainTitle'
 
 export const ObjectItemPage: FC = () => {
-	// const { objId } = useParams()
+	const { objId } = useParams()
 
-	// const currentObject = useAppSelector(getObjectById(Number(objId)))
+	const { data: currentObject, isError } = useGetObjectByIdQuery(Number(objId))
 
-	// if (currentObject === null || currentObject === undefined) {
-	// 	return <h1>Объект не найден</h1>
-	// }
+	if (isError || !currentObject) {
+		return <h1>Объект не найден</h1>
+	}
 
 	return (
 		<Container className='object-card'>
@@ -26,68 +32,23 @@ export const ObjectItemPage: FC = () => {
 				<section className='object-card__info'>
 					<div className='object-card__info-top'>
 						<p className='object-card__unique-number'>
-							<svg
-								width='28'
-								height='21'
-								viewBox='0 0 28 21'
-								fill='none'
-								xmlns='http://www.w3.org/2000/svg'
-							>
-								<path
-									d='M4 1.80005H11.7C12.6 1.80005 13.2 2.50005 13.2 3.30005V14.1C13.2 15 12.5 15.6 11.7 15.6H4C3.1 15.6 2.5 14.9 2.5 14.1V3.30005C2.5 2.50005 3.2 1.80005 4 1.80005Z'
-									fill='white'
-								/>
-								<path
-									d='M11.8 17.2H4.09998C2.39998 17.2 1 15.8 1 14.1V3.30005C1 1.60005 2.39998 0.199951 4.09998 0.199951H11.8C13.5 0.199951 14.9 1.60005 14.9 3.30005V14.1C14.9 15.8 13.5 17.2 11.8 17.2ZM4 1.80005C3.1 1.80005 2.5 2.50005 2.5 3.30005V14.1C2.5 15 3.2 15.6 4 15.6H11.7C12.6 15.6 13.2 14.9 13.2 14.1V3.30005C13.2 2.40005 12.5 1.80005 11.7 1.80005H4Z'
-									fill='#51828E'
-								/>
-								<path
-									d='M4 4.90002H24.1C25 4.90002 25.6 5.60002 25.6 6.40002V17.2C25.6 18.1 24.9 18.7 24.1 18.7H4C3.1 18.7 2.5 18 2.5 17.2V6.40002C2.5 5.50002 3.2 4.90002 4 4.90002Z'
-									fill='white'
-								/>
-								<path
-									d='M24.1003 20.3H4.00037C2.30037 20.3 0.900391 18.9 0.900391 17.2V6.40002C0.900391 4.70002 2.30037 3.30005 4.00037 3.30005H24.1003C25.8003 3.30005 27.2004 4.70002 27.2004 6.40002V17.2C27.2004 18.9 25.8003 20.3 24.1003 20.3ZM4.00037 4.90002C3.10037 4.90002 2.50037 5.60002 2.50037 6.40002V17.2C2.50037 18.1 3.20037 18.7 4.00037 18.7H24.1003C25.0003 18.7 25.6003 18 25.6003 17.2V6.40002C25.6003 5.50002 24.9003 4.90002 24.1003 4.90002H4.00037Z'
-									fill='#51828E'
-								/>
-								<path
-									d='M9.50018 7.90002H11.0002C11.4002 7.90002 11.8002 8.19995 11.8002 8.69995V14.9C11.8002 15.3 11.5002 15.7 11.0002 15.7H9.50018C9.10018 15.7 8.7002 15.4 8.7002 14.9V8.69995C8.7002 8.29995 9.00018 7.90002 9.50018 7.90002Z'
-									fill='#51828E'
-								/>
-								<path d='M11.8002 7.90002H8.7002V15.6H11.8002V7.90002Z' fill='#51828E' />
-								<path
-									d='M20.3 7.90002H21.8C22.2 7.90002 22.6 8.20004 22.6 8.70004V14.9C22.6 15.3 22.3 15.7 21.8 15.7H20.3C19.9 15.7 19.5 15.4 19.5 14.9V8.70004C19.5 8.30004 19.8 7.90002 20.3 7.90002Z'
-									fill='#51828E'
-								/>
-								<path d='M22.6 7.90002H19.5V15.6H22.6V7.90002Z' fill='#51828E' />
-								<path
-									d='M6.40057 15.7C6.00057 15.7 5.60059 15.4 5.60059 14.9V8.70004C5.60059 8.30004 5.90057 7.90002 6.40057 7.90002C6.90057 7.90002 7.20058 8.20004 7.20058 8.70004V14.9C7.10058 15.3 6.80057 15.7 6.40057 15.7Z'
-									fill='#51828E'
-								/>
-								<path
-									d='M14.1008 15.7C13.7008 15.7 13.3008 15.4 13.3008 14.9V8.70004C13.3008 8.30004 13.6008 7.90002 14.1008 7.90002C14.6008 7.90002 14.9008 8.20004 14.9008 8.70004V14.9C14.9008 15.3 14.5008 15.7 14.1008 15.7Z'
-									fill='#51828E'
-								/>
-								<path
-									d='M17.2004 15.7C16.8004 15.7 16.4004 15.4 16.4004 14.9V8.70004C16.4004 8.30004 16.7004 7.90002 17.2004 7.90002C17.7004 7.90002 18.0004 8.20004 18.0004 8.70004V14.9C17.9004 15.3 17.6004 15.7 17.2004 15.7Z'
-									fill='#51828E'
-								/>
-							</svg>
-							{/* {currentObject.objectCode} */}
+							<ObjCodeSvg width='47' height='34' />
+							{currentObject.objectCode}
 						</p>
 					</div>
 					<div className='object-card__info-main'>
 						<div className='object-card__info-main-left'>
-							{/* <h2 className='subtitle'>{currentObject.objectInnerDescription}</h2> */}
+							<h2 className='subtitle'>{currentObject.objectInnerDescription}</h2>
 							<ul className='object-card__info-list'>
 								<li>
 									<p className='object-card__info-list-title'>Начальная стоимость:</p>
 									<p className='object-card__info-list-content'>
-										{/* {currentObject.objectPriceInRubles} рублей */}
+										{currentObject.objectPriceInRubles} рублей
 									</p>
 								</li>
 								<li>
 									<p className='object-card__info-list-title'>Адрес Объекта:</p>
-									{/* <p className='object-card__info-list-content'>{currentObject.objectAddressRU}</p> */}
+									<p className='object-card__info-list-content'>{currentObject.objectAddressRU}</p>
 								</li>
 								<li>
 									<p className='object-card__info-list-title'>Застройщик Объекта:</p>
@@ -115,57 +76,7 @@ export const ObjectItemPage: FC = () => {
 											Приказ № 22 349 от 04.09.2022 года Администрация Ташкентского района
 										</p>
 										<a href='#' className='object-card__info-list-download' download>
-											<svg
-												width='20'
-												height='24'
-												viewBox='0 0 20 24'
-												fill='none'
-												xmlns='http://www.w3.org/2000/svg'
-											>
-												<path
-													d='M17.5599 23.0586H4.2723C3.48683 23.0586 2.84863 22.4204 2.84863 21.6349V4.63277C2.84863 3.8473 3.48683 3.20911 4.2723 3.20911H14.9907L18.9999 7.28374V21.6186C18.9835 22.4204 18.3453 23.0586 17.5599 23.0586Z'
-													fill='white'
-													stroke='#337390'
-													strokeLinecap='round'
-													strokeLinejoin='round'
-												/>
-												<path
-													d='M15.7112 20.8331H2.42367C1.6382 20.8331 1 20.1949 1 19.4095V2.42367C1 1.6382 1.6382 1 2.42367 1H13.1421L17.1512 5.07463V19.4095C17.1349 20.1949 16.4967 20.8331 15.7112 20.8331Z'
-													fill='white'
-												/>
-												<path
-													d='M6.30273 5.15643C7.20275 5.15643 8.10277 5.15643 9.00279 5.15643C9.39553 5.15643 9.5919 5.30371 9.5919 5.61462C9.60826 5.92554 9.39553 6.10554 9.00279 6.10554C7.20275 6.10554 5.40272 6.10554 3.60268 6.10554C3.20994 6.10554 3.01357 5.95827 3.01357 5.64735C2.99721 5.33644 3.20994 5.15643 3.60268 5.15643C4.48633 5.15643 5.38635 5.15643 6.30273 5.15643Z'
-													fill='#3692BC'
-												/>
-												<path
-													d='M5.35251 3.2746C5.94161 3.2746 6.54708 3.2746 7.13618 3.2746C7.49619 3.2746 7.69255 3.43823 7.69255 3.73279C7.69255 4.0437 7.49619 4.20734 7.13618 4.20734C5.94161 4.20734 4.74704 4.20734 3.55247 4.20734C3.19246 4.20734 2.99609 4.0437 2.99609 3.74915C2.99609 3.43823 3.19246 3.2746 3.55247 3.2746C4.15794 3.2746 4.7634 3.2746 5.35251 3.2746Z'
-													fill='#3692BC'
-												/>
-												<path
-													d='M4.87917 8.44563C4.43734 8.44563 3.97915 8.44563 3.53732 8.44563C3.21004 8.44563 3.01367 8.26563 3.01367 7.98744C3.01367 7.69289 3.21004 7.51288 3.52096 7.51288C4.43734 7.51288 5.33736 7.51288 6.25374 7.51288C6.58102 7.51288 6.77739 7.69288 6.77739 7.97107C6.77739 8.26562 6.58102 8.44563 6.27011 8.44563C5.79555 8.46199 5.33736 8.44563 4.87917 8.44563Z'
-													fill='#3692BC'
-												/>
-												<path
-													d='M3.93006 10.3275C3.76642 10.3275 3.60278 10.3438 3.43914 10.3275C3.17731 10.3111 3.01367 10.1147 3.01367 9.86927C3.01367 9.62381 3.17731 9.41108 3.43914 9.39472C3.78278 9.37836 4.12643 9.37836 4.47007 9.39472C4.73189 9.41108 4.89553 9.60745 4.89553 9.85291C4.89553 10.0984 4.73189 10.2947 4.47007 10.3275C4.45371 10.3275 4.43734 10.3275 4.40461 10.3275C4.24097 10.3275 4.07733 10.3275 3.93006 10.3275Z'
-													fill='#3692BC'
-												/>
-												<path
-													d='M15.2363 5.04187V20.8331H15.7109C16.4964 20.8331 17.1345 20.1949 17.1345 19.4094V5.05823H15.2363V5.04187Z'
-													fill='#E9E9E9'
-												/>
-												<path
-													d='M14.3369 3.20917V4.81284C14.3369 5.28739 14.7296 5.68012 15.2042 5.68012H16.7752L14.3369 3.20917Z'
-													fill='#E9E9E9'
-												/>
-												<path
-													d='M13.125 1V3.6346C13.125 4.42007 13.7632 5.05826 14.5487 5.05826H17.1178L13.125 1Z'
-													fill='#A7CFD4'
-												/>
-												<path
-													d='M15.7112 20.8331H2.42367C1.6382 20.8331 1 20.1949 1 19.4095V2.42367C1 1.6382 1.6382 1 2.42367 1H13.1421L17.1512 5.07463V19.4095C17.1349 20.1949 16.4967 20.8331 15.7112 20.8331Z'
-													stroke='#337390'
-												/>
-											</svg>
+											<DocumentsIconSvg width='18' height='22' />
 											<span> скачать документ</span>
 										</a>
 									</div>
@@ -175,48 +86,37 @@ export const ObjectItemPage: FC = () => {
 						<aside className='object-card__aside'>
 							<p className='object-card__aside-type'>ИНВЕСТИЦИОННЫЙ ДОГОВОР</p>
 							<p className='object-card__aside-status'>
-								<svg
-									width='17'
-									height='12'
-									viewBox='0 0 17 12'
-									fill='none'
-									xmlns='http://www.w3.org/2000/svg'
-								>
-									<path
-										d='M6.59999 12C6.29999 12 6.10004 11.9 5.90004 11.7L0.3 6.09999C-0.1 5.69999 -0.1 5.09999 0.3 4.69999C0.7 4.29999 1.30002 4.29999 1.70002 4.69999L6.59999 9.59999L15.3 0.899976C15.7 0.499976 16.3 0.499976 16.7 0.899976C17.1 1.29998 17.1 1.89997 16.7 2.29997L7.3 11.7C7.1 11.9 6.89999 12 6.59999 12Z'
-										fill='#337390'
-									/>
-								</svg>
+								<CheckIconSvg width='17' height='22' />
 								Объект выставлен на торги
 							</p>
-							{/* {currentObject.objectAuctionNumber ? ( */}
-							{/*	<> */}
-							{/*		<div className='object-card__aside-auction'> */}
-							{/*			<h3>Аукцион {currentObject.objectAuctionNumber}</h3> */}
-							{/*			<ul> */}
-							{/*				<li> */}
-							{/*					<p>Аукцион открытого типа</p> */}
-							{/*				</li> */}
-							{/*				<li> */}
-							{/*					<p> */}
-							{/*						Аукцион начнется */}
-							{/*						<span> */}
-							{/*							27.03.2023 | 10:30 <span>TASH</span>{' '} */}
-							{/*						</span> */}
-							{/*					</p> */}
-							{/*				</li> */}
-							{/*				<li> */}
-							{/*					<p>Для физических лиц</p> */}
-							{/*				</li> */}
-							{/*			</ul> */}
-							{/*		</div> */}
-							{/*		<Link to={AppRoute.Auc} className='object-card__aside-link'> */}
-							{/*			Страница Аукциона <span>{currentObject.objectAuctionNumber}</span> */}
-							{/*		</Link> */}
-							{/*	</> */}
-							{/* ) : ( */}
-							{/*	<h3>Аукцион не выставлен</h3> */}
-							{/* )} */}
+							{currentObject.objectAuctionNumber ? (
+								<>
+									<div className='object-card__aside-auction'>
+										<h3>Аукцион {currentObject.objectAuctionNumber}</h3>
+										<ul>
+											<li>
+												<p>Аукцион открытого типа</p>
+											</li>
+											<li>
+												<p>
+													Аукцион начнется
+													<span>
+														27.03.2023 | 10:30 <span>TASH</span>{' '}
+													</span>
+												</p>
+											</li>
+											<li>
+												<p>Для физических лиц</p>
+											</li>
+										</ul>
+									</div>
+									<Link to={AppRoute.Auc} className='object-card__aside-link'>
+										Страница Аукциона <span>{currentObject.objectAuctionNumber}</span>
+									</Link>
+								</>
+							) : (
+								<h3>Аукцион не выставлен</h3>
+							)}
 						</aside>
 					</div>
 				</section>

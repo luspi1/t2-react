@@ -21,16 +21,3 @@ export enum ObjectsStatuses {
 	sold = 'sold',
 	draft = 'draft',
 }
-
-export enum AucStatuses {
-	all = 'all',
-	onAuc = 'onAuc',
-	withoutAuc = 'withoutAuc',
-}
-
-export enum ObjectsStatusesContent {
-	work = 'Объект в работе',
-	await = 'Ожидает',
-	sold = 'Продан',
-	draft = 'Черновик',
-}

@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { type ObjectItem } from 'src/types/objects'
+
+import { type ObjFiltrationParams, type ObjItem } from 'src/types/objects'
 
 export const objectsApi = createApi({
 	reducerPath: 'objects/api',
@@ -7,15 +8,24 @@ export const objectsApi = createApi({
 		baseUrl: import.meta.env.VITE_BASE_URL,
 	}),
 	endpoints: (build) => ({
-		getObjects: build.query<ObjectItem[], string>({
-			query: (search) => ({
-				url: `/objects`,
+		getObjects: build.query<ObjItem[], ObjFiltrationParams>({
+			query: (filtrationParams) => ({
+				url: `/objects?${filtrationParams.auc ? '&isObjAuc=' + filtrationParams.auc : ''}${
+					filtrationParams.status
+						? '&auctionObjectStatus.statusProperty=' + filtrationParams.status
+						: ''
+				}`,
 				params: {
-					q: search,
+					q: filtrationParams.search,
 				},
+			}),
+		}),
+		getObjectById: build.query<ObjItem, number>({
+			query: (id) => ({
+				url: `/objects/${id}`,
 			}),
 		}),
 	}),
 })
 
-export const { useGetObjectsQuery } = objectsApi
+export const { useGetObjectsQuery, useGetObjectByIdQuery } = objectsApi

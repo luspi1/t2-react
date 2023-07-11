@@ -1,8 +1,18 @@
 import { type FC } from 'react'
 
-export const ObjCodeSvg: FC = () => {
+type ObjCodeSvgProps = {
+	width: string
+	height: string
+}
+export const ObjCodeSvg: FC<ObjCodeSvgProps> = ({ width, height }) => {
 	return (
-		<svg width='36' height='27' viewBox='0 0 36 27' fill='none' xmlns='http://www.w3.org/2000/svg'>
+		<svg
+			width={width}
+			height={height}
+			viewBox='0 0 36 27'
+			fill='none'
+			xmlns='http://www.w3.org/2000/svg'
+		>
 			<path
 				d='M4.39984 2H14.6998C15.7998 2 16.7998 2.89998 16.7998 4.09998V18.5C16.7998 19.6 15.8998 20.6 14.6998 20.6H4.39984C3.29984 20.6 2.2998 19.7 2.2998 18.5V4.09998C2.3998 2.89998 3.29984 2 4.39984 2Z'
 				fill='white'

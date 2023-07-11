@@ -3,7 +3,7 @@ export type ObjectItemStatus = {
 	statusContent?: string
 }
 
-export type ObjectItem = {
+export type ObjItem = {
 	id: number
 	objectCode: string
 	objectSize: number
@@ -15,5 +15,8 @@ export type ObjectItem = {
 	isObjAuc: string
 }
 
-export type ObjStatus = 'all' | 'inWork' | 'await' | 'sold' | 'draft' | undefined
-export type AucStatus = 'all' | 'onAuc' | 'withoutAuc' | undefined
+export type ObjFiltrationParams = {
+	search: string
+	status: string
+	auc: string
+}
