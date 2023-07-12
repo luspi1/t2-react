@@ -1,17 +1,15 @@
 import { type FC } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { Link, useParams } from 'react-router-dom'
-import { AppRoute } from 'src/helpers/consts'
+import { useParams } from 'react-router-dom'
+import { ObjectCardInfo } from 'src/pages/ObjectItemPage/components/ObjectCardInfo/ObjectCardInfo'
 import { useGetObjectByIdQuery } from 'src/store/objects/objects.api'
-// import { useAppSelector } from 'src/hooks/store'
-// import { getObjectById } from '../ObjectsPage/store/ObjectsSlice/objects.selectors'
-// import { AppRoute } from 'src/helpers/consts'
+
 import { Button } from 'src/UI/Button'
 import { Container } from 'src/UI/Container'
-import { CheckIconSvg } from 'src/UI/icons/CheckIconSVG'
-import { DocumentsIconSvg } from 'src/UI/icons/DocumentsIconSVG'
-import { ObjCodeSvg } from 'src/UI/icons/ObjCodeSVG'
+
 import { MainTitle } from 'src/UI/MainTitle'
+
+import styles from './index.module.scss'
 
 export const ObjectItemPage: FC = () => {
 	const { objId } = useParams()
@@ -23,103 +21,19 @@ export const ObjectItemPage: FC = () => {
 	}
 
 	return (
-		<Container className='object-card'>
+		<Container>
 			<Helmet>
 				<title>Карточка объекта</title>
 			</Helmet>
 			<MainTitle>Карточка объекта</MainTitle>
-			<div className='object-card__inner'>
-				<section className='object-card__info'>
-					<div className='object-card__info-top'>
-						<p className='object-card__unique-number'>
-							<ObjCodeSvg width='47' height='34' />
-							{currentObject.objectCode}
-						</p>
-					</div>
-					<div className='object-card__info-main'>
-						<div className='object-card__info-main-left'>
-							<h2 className='subtitle'>{currentObject.objectInnerDescription}</h2>
-							<ul className='object-card__info-list'>
-								<li>
-									<p className='object-card__info-list-title'>Начальная стоимость:</p>
-									<p className='object-card__info-list-content'>
-										{currentObject.objectPriceInRubles} рублей
-									</p>
-								</li>
-								<li>
-									<p className='object-card__info-list-title'>Адрес Объекта:</p>
-									<p className='object-card__info-list-content'>{currentObject.objectAddressRU}</p>
-								</li>
-								<li>
-									<p className='object-card__info-list-title'>Застройщик Объекта:</p>
-									<p className='object-card__info-list-content'>
-										ООО «А-валид Эстейт»; ИНН: 998990099233
-									</p>
-								</li>
-								<li>
-									<p className='object-card__info-list-title'>Объект добавлен в базу:</p>
-									<div className='object-card__info-list-content'>
-										<p>Менеджером ООО «А-валид Эстейт» Валиевым И.Н.</p>
-										<p>01 ноября 2022 года</p>
-									</div>
-								</li>
-								<li>
-									<p className='object-card__info-list-title'>Объект в Системе:</p>
-									<p className='object-card__info-list-content'>
-										Объект 219540-567-К ранее не выставлялся на торги в Системе
-									</p>
-								</li>
-								<li>
-									<p className='object-card__info-list-title'>Основание застройки:</p>
-									<div>
-										<p className='object-card__info-list-content'>
-											Приказ № 22 349 от 04.09.2022 года Администрация Ташкентского района
-										</p>
-										<a href='#' className='object-card__info-list-download' download>
-											<DocumentsIconSvg width='18' height='22' />
-											<span> скачать документ</span>
-										</a>
-									</div>
-								</li>
-							</ul>
-						</div>
-						<aside className='object-card__aside'>
-							<p className='object-card__aside-type'>ИНВЕСТИЦИОННЫЙ ДОГОВОР</p>
-							<p className='object-card__aside-status'>
-								<CheckIconSvg width='17' height='22' />
-								Объект выставлен на торги
-							</p>
-							{currentObject.objectAuctionNumber ? (
-								<>
-									<div className='object-card__aside-auction'>
-										<h3>Аукцион {currentObject.objectAuctionNumber}</h3>
-										<ul>
-											<li>
-												<p>Аукцион открытого типа</p>
-											</li>
-											<li>
-												<p>
-													Аукцион начнется
-													<span>
-														27.03.2023 | 10:30 <span>TASH</span>{' '}
-													</span>
-												</p>
-											</li>
-											<li>
-												<p>Для физических лиц</p>
-											</li>
-										</ul>
-									</div>
-									<Link to={AppRoute.Auc} className='object-card__aside-link'>
-										Страница Аукциона <span>{currentObject.objectAuctionNumber}</span>
-									</Link>
-								</>
-							) : (
-								<h3>Аукцион не выставлен</h3>
-							)}
-						</aside>
-					</div>
-				</section>
+			<div className={styles.objCardInner}>
+				<ObjectCardInfo
+					code={currentObject.objectCode}
+					desc={currentObject.objectInnerDescription}
+					aucNumber={currentObject.objectAuctionNumber}
+					addressRu={currentObject.objectAddressRU}
+					priceRub={currentObject.objectPriceInRubles}
+				/>
 				<section className='object-card__btns'>
 					<Button
 						disabledState
