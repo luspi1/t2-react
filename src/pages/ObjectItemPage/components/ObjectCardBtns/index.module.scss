@@ -1,0 +1,29 @@
+.objCardBtns {
+  padding-top: 30px;
+  display: flex;
+  align-items: center;
+
+  button {
+    svg {
+      margin-left: 9px;
+    }
+  }
+}
+
+.objCardPrompt {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  color: #337390FF;
+  padding: 7px;
+  display: flex;
+  align-items: center;
+  background-color: #F4F7FBFF;
+  max-width: 330px;
+
+  svg {
+    min-width: 34px;
+    margin-right: 10px;
+  }
+}

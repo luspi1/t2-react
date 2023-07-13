@@ -22,50 +22,44 @@ export const ObjectCardInfo: FC<ObjectCardInfoProps> = ({
 }) => {
 	return (
 		<section className={styles.objCardInfo}>
-			<div className='object-card__info-top'>
-				<p className='object-card__unique-number'>
+			<div className={styles.objCardInfoTop}>
+				<p className={styles.uniqNumber}>
 					<ObjCodeSvg width='47' height='34' />
 					{code}
 				</p>
 			</div>
-			<div className='object-card__info-main'>
-				<div className='object-card__info-main-left'>
-					<h2 className='subtitle'>{desc}</h2>
-					<ul className='object-card__info-list'>
+			<div className={styles.infoMain}>
+				<div className={styles.infoMainLeft}>
+					<h1>{desc}</h1>
+					<ul className={styles.infoList}>
 						<li>
-							<p className='object-card__info-list-title'>Начальная стоимость:</p>
-							<p className='object-card__info-list-content'>{priceRub} рублей</p>
+							<h3>Начальная стоимость:</h3>
+							<p>{priceRub} рублей</p>
 						</li>
 						<li>
-							<p className='object-card__info-list-title'>Адрес Объекта:</p>
-							<p className='object-card__info-list-content'>{addressRu}</p>
+							<h3>Адрес Объекта:</h3>
+							<p>{addressRu}</p>
 						</li>
 						<li>
-							<p className='object-card__info-list-title'>Застройщик Объекта:</p>
-							<p className='object-card__info-list-content'>
-								ООО «А-валид Эстейт»; ИНН: 998990099233
-							</p>
+							<h3>Застройщик Объекта:</h3>
+							<p>ООО «А-валид Эстейт»; ИНН: 998990099233</p>
 						</li>
 						<li>
-							<p className='object-card__info-list-title'>Объект добавлен в базу:</p>
-							<div className='object-card__info-list-content'>
+							<h3>Объект добавлен в базу:</h3>
+							<div>
 								<p>Менеджером ООО «А-валид Эстейт» Валиевым И.Н.</p>
 								<p>01 ноября 2022 года</p>
 							</div>
 						</li>
 						<li>
-							<p className='object-card__info-list-title'>Объект в Системе:</p>
-							<p className='object-card__info-list-content'>
-								Объект 219540-567-К ранее не выставлялся на торги в Системе
-							</p>
+							<h3>Объект в Системе:</h3>
+							<p>Объект 219540-567-К ранее не выставлялся на торги в Системе</p>
 						</li>
 						<li>
-							<p className='object-card__info-list-title'>Основание застройки:</p>
+							<h3>Основание застройки:</h3>
 							<div>
-								<p className='object-card__info-list-content'>
-									Приказ № 22 349 от 04.09.2022 года Администрация Ташкентского района
-								</p>
-								<a href='#' className='object-card__info-list-download' download>
+								<p>Приказ № 22 349 от 04.09.2022 года Администрация Ташкентского района</p>
+								<a href='#' download>
 									<DocumentsIconSvg width='18' height='22' />
 									<span> скачать документ</span>
 								</a>
@@ -73,15 +67,15 @@ export const ObjectCardInfo: FC<ObjectCardInfoProps> = ({
 						</li>
 					</ul>
 				</div>
-				<aside className='object-card__aside'>
-					<p className='object-card__aside-type'>ИНВЕСТИЦИОННЫЙ ДОГОВОР</p>
-					<p className='object-card__aside-status'>
+				<aside className={styles.objAside}>
+					<p className={styles.objAsideType}>ИНВЕСТИЦИОННЫЙ ДОГОВОР</p>
+					<p className={styles.objAsideStatus}>
 						<CheckIconSvg width='17' height='22' />
 						Объект выставлен на торги
 					</p>
 					{aucNumber ? (
 						<>
-							<div className='object-card__aside-auction'>
+							<div className={styles.objAsideAuc}>
 								<h3>Аукцион {aucNumber}</h3>
 								<ul>
 									<li>
@@ -89,7 +83,7 @@ export const ObjectCardInfo: FC<ObjectCardInfoProps> = ({
 									</li>
 									<li>
 										<p>
-											Аукцион начнется
+											Аукцион начнется{' '}
 											<span>
 												27.03.2023 | 10:30 <span>TASH</span>{' '}
 											</span>
@@ -100,7 +94,7 @@ export const ObjectCardInfo: FC<ObjectCardInfoProps> = ({
 									</li>
 								</ul>
 							</div>
-							<Link to={AppRoute.Auc} className='object-card__aside-link'>
+							<Link to={AppRoute.Auc} className={styles.objAsideLink}>
 								Страница Аукциона <span>{aucNumber}</span>
 							</Link>
 						</>

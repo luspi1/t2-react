@@ -2,6 +2,12 @@ export type ObjectItemStatus = {
 	statusProperty?: string
 	statusContent?: string
 }
+export type DocScan = {
+	url: string
+}
+export type ObjImg = {
+	url: string
+}
 
 export type ObjItem = {
 	id: number
@@ -13,6 +19,8 @@ export type ObjItem = {
 	objectAddressRU: string
 	objectAuctionNumber: string | null
 	isObjAuc: string
+	docScans?: DocScan[]
+	objImages?: ObjImg[]
 }
 
 export type ObjFiltrationParams = {

@@ -1,4 +1,206 @@
 .objCardInfo {
   padding-bottom: 35px;
   border-bottom: 1px solid #D2E7EFFF;
+  margin-bottom: 30px;
+
+  h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #000;
+    font-size: 25px;
+    line-height: 35px;
+    margin-bottom: 40px;
+  }
 }
+
+.objCardInfoTop {
+  padding-bottom: 30px;
+  border-bottom: 1px solid #D2E7EFFF;
+}
+
+
+.uniqNumber {
+  background-color: #F4F7FBFF;
+  padding: 18px 18px;
+  border-radius: 30px;
+  max-width: 260px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #000000;
+  display: flex;
+  align-items: center;
+
+  svg {
+    margin-right: 28px;
+  }
+}
+
+.infoMain {
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+
+  h2 {
+    margin-bottom: 43px;
+  }
+}
+
+.infoMainLeft {
+  margin-right: 95px;
+  flex-grow: 1;
+}
+
+
+.infoList {
+  li {
+    display: flex;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      min-width: 185px;
+      margin-right: 35px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+    }
+
+    p {
+      position: relative;
+      z-index: 10;
+
+      span {
+        font-weight: 700;
+      }
+
+      max-width: 382px;
+    }
+
+    a {
+      display: flex;
+      max-width: max-content;
+      align-items: center;
+      margin-top: 5px;
+      font-weight: 500;
+      color: #337390FF;
+
+      span {
+        border-bottom: 1px solid transparent;
+      }
+
+      &:hover {
+        span {
+          border-color: #337390FF;
+        }
+      }
+
+      svg {
+        margin-right: 9px;
+      }
+    }
+  }
+}
+
+
+.objAside {
+  width: 270px;
+  min-width: 270px;
+  padding-top: 15px;
+}
+
+.objAsideType {
+  margin-bottom: 40px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  text-transform: uppercase;
+  color: #337390FF;
+}
+
+.objAsideStatus {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: #337390FF;
+  background-color: #F4F7FBFF;
+  border-radius: 25px;
+  border: 1px solid #337390FF;
+  padding: 11px 13px;
+  max-width: 270px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 35px;
+
+  svg {
+    margin-right: 8px;
+  }
+}
+
+
+.objAsideAuc {
+  background-color: #F4F7FBFF;
+  border-radius: 3px;
+  padding: 21px 50px 21px 16px;
+  margin-bottom: 10px;
+
+  h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #337390FF;
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+
+  li {
+    padding-left: 22px;
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: #93B5C5;
+    }
+
+    span {
+      font-weight: 700;
+      color: #337390FF;
+
+      span {
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+
+.objAsideLink {
+  display: block;
+  border: 1px solid #337390FF;
+  border-radius: 3px;
+  color: #337390FF;
+  padding: 11px 18px;
+  transition: all .3s;
+
+  span {
+    font-weight: 700;
+  }
+
+  &:hover {
+    background-color: #337390FF;
+    color: #ffffff;
+  }
+}
+

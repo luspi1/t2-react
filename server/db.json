@@ -12,7 +12,68 @@
       "objectInnerDescription": "2-этажный жилой дом на озере",
       "objectAddressRU": "Саратов, ул. Безупречного понимания, д. 122",
       "objectAuctionNumber": "A-644-407",
-      "isObjAuc": "onAuc"
+      "isObjAuc": "onAuc",
+      "docScans": [
+        {
+          "url": "https://1cpoly.ru/i/newcont/scan-upload-doc1.jpg"
+        },
+        {
+          "url": "https://www.tsj.ru/imgrubrs.asp?art_id=50562"
+        },
+        {
+          "url": "https://ic.pics.livejournal.com/von_hoffmann/11888770/307416/307416_original.jpg"
+        },
+        {
+          "url": "https://1cpoly.ru/i/newcont/scan-upload-doc1.jpg"
+        },
+        {
+          "url": "https://www.tsj.ru/imgrubrs.asp?art_id=50562"
+        },
+        {
+          "url": "https://ic.pics.livejournal.com/von_hoffmann/11888770/307416/307416_original.jpg"
+        },
+        {
+          "url": "https://1cpoly.ru/i/newcont/scan-upload-doc1.jpg"
+        },
+        {
+          "url": "https://www.tsj.ru/imgrubrs.asp?art_id=50562"
+        },
+        {
+          "url": "https://ic.pics.livejournal.com/von_hoffmann/11888770/307416/307416_original.jpg"
+        }
+      ],
+      "objImages": [
+        {
+          "url": "https://www.arendator.ru/data/editor_imgs/7/abc-editor_img-7350.jpg"
+        },
+        {
+          "url": "https://tambov.restate.ru/img/preset-rent.jpg"
+        },
+        {
+          "url": "https://novostroyki.shop/wp-content/uploads/2021/01/2250619.jpg"
+        },
+        {
+          "url": "https://novostroev.ru/upload/iblock/677/67780ac489b0ffdfd84d61eb3a912085.jpg"
+        },
+        {
+          "url": "https://icdn.lenta.ru/images/2021/11/11/15/20211111150300388/square_320_e10e0f6e376c9be62b16befa29531335.jpg"
+        },
+        {
+          "url": "https://valoapart.ru/upload/medialibrary/40e/%D0%B2%D0%B0%D0%BB%D0%BE3.jpg"
+        },
+        {
+          "url": "https://alterainvest.ru/upload/iblock/3d0/3d0fccc7f28bdea887f14c6a8ad4d86d.jpg"
+        },
+        {
+          "url": "https://back.m16-estate.ru/images/photos/6AwrkjkFX_7zm3EejQWbRvv6wXOON12S.jpg"
+        },
+        {
+          "url": "https://novostroyki.shop/wp-content/uploads/2021/01/754678198272065.jpeg"
+        },
+        {
+          "url": "https://cdn.spbguru.ru/uploads/flats/4848/kvartry-v-4848-zhk-vidi-1640677351_3322.jpg"
+        }
+      ]
     },
     {
       "id": 2,
@@ -26,7 +87,41 @@
       "objectInnerDescription": "Склад-рефрижератор на Центральном рынке",
       "objectAddressRU": "Тамбов, ул. Бульвар Энтузиастов, д. 25",
       "objectAuctionNumber": "Г-435-124",
-      "isObjAuc": "onAuc"
+      "isObjAuc": "onAuc",
+      "docScans": [
+        {
+          "url": "https://1cpoly.ru/i/newcont/scan-upload-doc1.jpg"
+        },
+        {
+          "url": "https://www.tsj.ru/imgrubrs.asp?art_id=50562"
+        }
+      ],
+      "objImages": [
+        {
+          "url": "https://www.arendator.ru/data/editor_imgs/7/abc-editor_img-7350.jpg"
+        },
+        {
+          "url": "https://tambov.restate.ru/img/preset-rent.jpg"
+        },
+        {
+          "url": "https://novostroyki.shop/wp-content/uploads/2021/01/2250619.jpg"
+        },
+        {
+          "url": "https://novostroev.ru/upload/iblock/677/67780ac489b0ffdfd84d61eb3a912085.jpg"
+        },
+        {
+          "url": "https://icdn.lenta.ru/images/2021/11/11/15/20211111150300388/square_320_e10e0f6e376c9be62b16befa29531335.jpg"
+        },
+        {
+          "url": "https://valoapart.ru/upload/medialibrary/40e/%D0%B2%D0%B0%D0%BB%D0%BE3.jpg"
+        },
+        {
+          "url": "https://alterainvest.ru/upload/iblock/3d0/3d0fccc7f28bdea887f14c6a8ad4d86d.jpg"
+        },
+        {
+          "url": "https://back.m16-estate.ru/images/photos/6AwrkjkFX_7zm3EejQWbRvv6wXOON12S.jpg"
+        }
+      ]
     },
     {
       "id": 3,
@@ -40,7 +135,28 @@
       "objectInnerDescription": "3-комнатная квартира в ЖК Азамат",
       "objectAddressRU": "Тамбов, ул. Бульвар Энтузиастов, д. 25",
       "objectAuctionNumber": null,
-      "isObjAuc": "withoutAuc"
+      "isObjAuc": "withoutAuc",
+      "docScans": [],
+      "objImages": [
+        {
+          "url": "https://icdn.lenta.ru/images/2021/11/11/15/20211111150300388/square_320_e10e0f6e376c9be62b16befa29531335.jpg"
+        },
+        {
+          "url": "https://valoapart.ru/upload/medialibrary/40e/%D0%B2%D0%B0%D0%BB%D0%BE3.jpg"
+        },
+        {
+          "url": "https://alterainvest.ru/upload/iblock/3d0/3d0fccc7f28bdea887f14c6a8ad4d86d.jpg"
+        },
+        {
+          "url": "https://back.m16-estate.ru/images/photos/6AwrkjkFX_7zm3EejQWbRvv6wXOON12S.jpg"
+        },
+        {
+          "url": "https://novostroyki.shop/wp-content/uploads/2021/01/754678198272065.jpeg"
+        },
+        {
+          "url": "https://cdn.spbguru.ru/uploads/flats/4848/kvartry-v-4848-zhk-vidi-1640677351_3322.jpg"
+        }
+      ]
     },
     {
       "id": 4,
@@ -54,7 +170,19 @@
       "objectInnerDescription": "Склад-рефрижератор на Центральном рынке",
       "objectAddressRU": "Воронеж, ул. Рылеева, д. 13",
       "objectAuctionNumber": null,
-      "isObjAuc": "withoutAuc"
+      "isObjAuc": "withoutAuc",
+      "docScans": [
+        {
+          "url": "https://1cpoly.ru/i/newcont/scan-upload-doc1.jpg"
+        },
+        {
+          "url": "https://www.tsj.ru/imgrubrs.asp?art_id=50562"
+        },
+        {
+          "url": "https://ic.pics.livejournal.com/von_hoffmann/11888770/307416/307416_original.jpg"
+        }
+      ],
+      "objImages": []
     },
     {
       "id": 5,
@@ -68,7 +196,29 @@
       "objectInnerDescription": "3-комнатная квартира в ЖК Азамат",
       "objectAddressRU": "Тамбов, ул. Бульвар Энтузиастов, д. 25",
       "objectAuctionNumber": "Г-435-124",
-      "isObjAuc": "onAuc"
+      "isObjAuc": "onAuc",
+      "docScans": [
+        {
+          "url": "https://1cpoly.ru/i/newcont/scan-upload-doc1.jpg"
+        }
+      ],
+      "objImages": [
+        {
+          "url": "https://valoapart.ru/upload/medialibrary/40e/%D0%B2%D0%B0%D0%BB%D0%BE3.jpg"
+        },
+        {
+          "url": "https://alterainvest.ru/upload/iblock/3d0/3d0fccc7f28bdea887f14c6a8ad4d86d.jpg"
+        },
+        {
+          "url": "https://back.m16-estate.ru/images/photos/6AwrkjkFX_7zm3EejQWbRvv6wXOON12S.jpg"
+        },
+        {
+          "url": "https://novostroyki.shop/wp-content/uploads/2021/01/754678198272065.jpeg"
+        },
+        {
+          "url": "https://cdn.spbguru.ru/uploads/flats/4848/kvartry-v-4848-zhk-vidi-1640677351_3322.jpg"
+        }
+      ]
     },
     {
       "id": 6,
@@ -82,7 +232,23 @@
       "objectInnerDescription": "2-этажный жилой дом на озере",
       "objectAddressRU": "Саратов, ул. Безупречного понимания, д. 122",
       "objectAuctionNumber": null,
-      "isObjAuc": "withoutAuc"
+      "isObjAuc": "withoutAuc",
+      "docScans": [
+        {
+          "url": "https://1cpoly.ru/i/newcont/scan-upload-doc1.jpg"
+        },
+        {
+          "url": "https://www.tsj.ru/imgrubrs.asp?art_id=50562"
+        },
+        {
+          "url": "https://ic.pics.livejournal.com/von_hoffmann/11888770/307416/307416_original.jpg"
+        }
+      ],
+      "objImages": [
+        {
+          "url": "https://www.arendator.ru/data/editor_imgs/7/abc-editor_img-7350.jpg"
+        }
+      ]
     },
     {
       "id": 7,
@@ -96,7 +262,56 @@
       "objectInnerDescription": "2-этажный жилой дом на озере",
       "objectAddressRU": "Саратов, ул. Безупречного понимания, д. 122",
       "objectAuctionNumber": null,
-      "isObjAuc": "withoutAuc"
+      "isObjAuc": "withoutAuc",
+      "docScans": [
+        {
+          "url": "https://1cpoly.ru/i/newcont/scan-upload-doc1.jpg"
+        },
+        {
+          "url": "https://www.tsj.ru/imgrubrs.asp?art_id=50562"
+        },
+        {
+          "url": "https://ic.pics.livejournal.com/von_hoffmann/11888770/307416/307416_original.jpg"
+        },
+        {
+          "url": "https://www.tsj.ru/imgrubrs.asp?art_id=50562"
+        },
+        {
+          "url": "https://ic.pics.livejournal.com/von_hoffmann/11888770/307416/307416_original.jpg"
+        }
+      ],
+      "objImages": [
+        {
+          "url": "https://www.arendator.ru/data/editor_imgs/7/abc-editor_img-7350.jpg"
+        },
+        {
+          "url": "https://tambov.restate.ru/img/preset-rent.jpg"
+        },
+        {
+          "url": "https://novostroyki.shop/wp-content/uploads/2021/01/2250619.jpg"
+        },
+        {
+          "url": "https://novostroev.ru/upload/iblock/677/67780ac489b0ffdfd84d61eb3a912085.jpg"
+        },
+        {
+          "url": "https://icdn.lenta.ru/images/2021/11/11/15/20211111150300388/square_320_e10e0f6e376c9be62b16befa29531335.jpg"
+        },
+        {
+          "url": "https://valoapart.ru/upload/medialibrary/40e/%D0%B2%D0%B0%D0%BB%D0%BE3.jpg"
+        },
+        {
+          "url": "https://alterainvest.ru/upload/iblock/3d0/3d0fccc7f28bdea887f14c6a8ad4d86d.jpg"
+        },
+        {
+          "url": "https://back.m16-estate.ru/images/photos/6AwrkjkFX_7zm3EejQWbRvv6wXOON12S.jpg"
+        },
+        {
+          "url": "https://novostroyki.shop/wp-content/uploads/2021/01/754678198272065.jpeg"
+        },
+        {
+          "url": "https://cdn.spbguru.ru/uploads/flats/4848/kvartry-v-4848-zhk-vidi-1640677351_3322.jpg"
+        }
+      ]
     },
     {
       "id": 8,
@@ -110,7 +325,44 @@
       "objectInnerDescription": "2-этажный жилой дом на озере",
       "objectAddressRU": "Саратов, ул. Безупречного понимания, д. 122",
       "objectAuctionNumber": "Г-435-124",
-      "isObjAuc": "onAuc"
+      "isObjAuc": "onAuc",
+      "docScans": [
+        {
+          "url": "https://1cpoly.ru/i/newcont/scan-upload-doc1.jpg"
+        },
+        {
+          "url": "https://www.tsj.ru/imgrubrs.asp?art_id=50562"
+        },
+        {
+          "url": "https://ic.pics.livejournal.com/von_hoffmann/11888770/307416/307416_original.jpg"
+        },
+        {
+          "url": "https://1cpoly.ru/i/newcont/scan-upload-doc1.jpg"
+        },
+        {
+          "url": "https://www.tsj.ru/imgrubrs.asp?art_id=50562"
+        },
+        {
+          "url": "https://ic.pics.livejournal.com/von_hoffmann/11888770/307416/307416_original.jpg"
+        }
+      ],
+      "objImages": [
+        {
+          "url": "https://www.arendator.ru/data/editor_imgs/7/abc-editor_img-7350.jpg"
+        },
+        {
+          "url": "https://tambov.restate.ru/img/preset-rent.jpg"
+        },
+        {
+          "url": "https://novostroyki.shop/wp-content/uploads/2021/01/2250619.jpg"
+        },
+        {
+          "url": "https://novostroev.ru/upload/iblock/677/67780ac489b0ffdfd84d61eb3a912085.jpg"
+        },
+        {
+          "url": "https://icdn.lenta.ru/images/2021/11/11/15/20211111150300388/square_320_e10e0f6e376c9be62b16befa29531335.jpg"
+        }
+      ]
     }
   ]
 }
